@@ -18,6 +18,8 @@ $ workon hardwarelab
 
 (hardwarelab) $ python manage.py makemigrations
 (hardwarelab) $ python manage.py migrate
+(hardwarelab) $ python manage.py createsuperuser
+
 (hardwarelab) $ python manage.py runserver
 ```
 
