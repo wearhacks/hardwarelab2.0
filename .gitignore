@@ -1,0 +1,18 @@
+# Python compiled byte code
+*.pyc
+
+# Bower components
+static/bower_components/
+
+# Uglified JavaScript
+dist/
+
+# Migrations
+*/migrations*
+migrate.sh
+
+static/CACHE/
+
+.idea/
+
+*.sqlite3

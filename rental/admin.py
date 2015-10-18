@@ -4,7 +4,6 @@ from rental.models import Device,Event,Inventory
 # Register your models here.
 
 class AdminEvent(admin.ModelAdmin):
-  description = "HI"
   filter_vertical = ("device",)
 
 class InventoryInline(admin.TabularInline):
