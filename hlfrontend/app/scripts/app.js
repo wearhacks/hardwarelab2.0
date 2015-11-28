@@ -37,6 +37,7 @@ angular
           
           return $http.post('http://localhost:2000/admin/checkauth', data)
             .then(function success(res) {
+              console.log(data)
               if (res.status === 200) {
                 return $q.when();
               } else {
