@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    {% load staticfiles %}
+
+    <title>WearHacks |  {% block title %}  {% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' id='blink-google-fonts-css'  href='//fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700%7CPT+Serif%3Aregular%2Citalic%2C700%26subset%3Dlatin%2C&#038;ver=1.0.5' type='text/css' media='all' />
+    <link rel="stylesheet" href="{% static 'bower_components/semantic-ui/dist/semantic.css' %}">
+
+      {% block script_section %}
+      {% endblock %}
+  </head>
+
+  <body>
+
+    <p id="back-top">
+        <a href="#top"><i class="fa-caret-up fa"></i></a>
+    </p>
+    {% include 'navbar.html' %}
+
+      {% block content %}
+
+      {% endblock %}
+
+    {% block scripts %}{% endblock %}
+
+
+  </body>
+           <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-56751789-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>

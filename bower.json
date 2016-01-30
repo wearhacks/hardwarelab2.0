@@ -1,0 +1,20 @@
+{
+  "name": "hardwarelab",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wearhacks/hardwarelab2.0",
+  "authors": [
+    "nadim <i.nadim@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "semantic-ui": "~2.1.8",
+    "jquery": "~2.2.0"
+  }
+}

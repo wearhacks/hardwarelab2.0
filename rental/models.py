@@ -53,6 +53,8 @@ class Rental(models.Model):
 
 class Event(models.Model):
   name = models.CharField(max_length = 50)
-  device = models.ManyToManyField(Inventory)
+  devices = models.ManyToManyField(Device)
+  inventories = models.ManyToManyField(Inventory)
   def __unicode__(self):
     return u"%s" % self.name
+

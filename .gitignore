@@ -2,7 +2,7 @@
 *.pyc
 
 # Bower components
-static/bower_components/
+static/hardwarelab/bower_components/
 
 # Uglified JavaScript
 dist/

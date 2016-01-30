@@ -4,7 +4,7 @@ from rental.models import Device,Event,Inventory
 # Register your models here.
 
 class AdminEvent(admin.ModelAdmin):
-  filter_vertical = ("device",)
+  filter_vertical = ("inventories",)
 
 class InventoryInline(admin.TabularInline):
   model = Inventory

@@ -39,6 +39,11 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rental',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.github'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -57,7 +62,9 @@ ROOT_URLCONF = 'hardwarelab.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'/templates')],
+        'DIRS': [os.path.join(BASE_DIR,'templates'), 
+                os.path.join(BASE_DIR, 'templates', 'allauth'), 
+                os.path.join(BASE_DIR, 'templates', 'hardwarelab'),],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -71,9 +78,15 @@ TEMPLATES = [
     },
 ]
 
+AUTHENTICATION_BACKENDS = (
+    # Needed to login by username in Django admin
+    'django.contrib.auth.backends.ModelBackend',
+    # `allauth` specific authentication methods, such as login by e-mail
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
 WSGI_APPLICATION = 'hardwarelab.wsgi.application'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
-MEDIA_URL = '/uploads/'
+MEDIA_URL = '/media/'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -104,8 +117,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'static/')
-
 PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, "static","hardwarelab"),
+    
+)
+SITE_ID = 1

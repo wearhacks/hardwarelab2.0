@@ -1,0 +1,11 @@
+
+{% extends "layout.html" %}
+{% block content %}
+<ul>
+ {% for device in devices %}
+  <li>
+    <h4><a href="/hardwarelab/{{event.name}}/{{device.name}}">{{ device.name }}</a></h4>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}
