@@ -17,36 +17,49 @@ def get_image_filename(instance, old_filename):
 
 
 
+
 class UserInfo(models.Model):
   user = models.OneToOneField(User, on_delete = models.CASCADE)
-  first_name = models.CharField(max_length = 50)
-  last_name = models.CharField(max_length = 50)
+  first_name = models.CharField(max_length = 50, blank=False)
+  last_name = models.CharField(max_length = 50, blank=False)
   phone_regex = RegexValidator(regex = r'^\+?1?\d{9,15}$',
                               message = "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-  phone_number = models.CharField(validators = [phone_regex], blank=True, max_length = 15) #validators should be a list
+  phone_number = models.CharField(validators = [phone_regex], blank=False, max_length = 15) #validators should be a list
+
+class Manufacturer(models.Model):
+  name = models.CharField(max_length = 50) 
+  region = models.CharField(max_length = 50)
+  contact_name = models.CharField(max_length = 50)
+  contact_email = models.EmailField(max_length = 254)
+  def __unicode__(self):
+    return u"%s" % self.name
 
 class Device(models.Model):
   name = models.CharField(max_length = 50)
-  company = models.CharField(max_length = 50)
-  small_desc = models.CharField(max_length = 250)
+  manufacturer = models.ForeignKey(Manufacturer, default = 0)
+  description = models.CharField(max_length = 250)
   image = models.ImageField(upload_to = get_image_filename, blank = True, null = True)
 
   def __unicode__(self):
     return u"%s" % self.name
 
 class Inventory(models.Model):
+  manufacturer = models.ForeignKey(Manufacturer, default = 0)
   device = models.ForeignKey(Device)
-  serial_id = models.CharField(max_length = 50)
+  serial_id = models.CharField(max_length = 50) #manually defined with the format: manufacturer.id+device.id+(prev_inventory.id + 1)
   def __unicode__(self):
     return u"%s [ID: %s]" % (self.device.name,self.serial_id)
   class Meta:
-        verbose_name_plural = "Inventories"
+        verbose_name_plural = "Inventory"
+        order_with_respect_to = 'device'
+
 class Rental(models.Model):
   user = models.ForeignKey(User)
   device = models.ForeignKey(Device)
   created_at = models.DateTimeField(auto_now_add = True)
-  updated_at = models.DateTimeField(auto_now = True)
-
+  updated_at = models.DateTimeField(auto_now = True) #is this really needed?
+  returned_at = models.DateTimeField(null = True)
+  hack_finished = models.BooleanField(default = True)
 
   def __unicode__(self):
     return u"%s" % self.id
@@ -58,3 +71,10 @@ class Event(models.Model):
   def __unicode__(self):
     return u"%s" % self.name
 
+class Review(models.Model):
+  user = models.ForeignKey(User)
+  devices = models.ManyToManyField(Device)
+  comfort_level = models.IntegerField()
+  device_rating = models.IntegerField()
+  improvements = models.CharField(max_length = 500)
+  other_comments = models.CharField(max_length = 500)
