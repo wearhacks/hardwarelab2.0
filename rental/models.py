@@ -47,11 +47,12 @@ class Inventory(models.Model):
   manufacturer = models.ForeignKey(Manufacturer, default = 0)
   device = models.ForeignKey(Device)
   serial_id = models.CharField(max_length = 50) #manually defined with the format: manufacturer.id+device.id+(prev_inventory.id + 1)
+  rented = models.BooleanField(default = False)
   def __unicode__(self):
     return u"%s [ID: %s]" % (self.device.name,self.serial_id)
   class Meta:
-        verbose_name_plural = "Inventory"
-        order_with_respect_to = 'device'
+    verbose_name_plural = "Inventory"
+    order_with_respect_to = 'device'
 
 class Rental(models.Model):
   user = models.ForeignKey(User)
@@ -66,10 +67,19 @@ class Rental(models.Model):
 
 class Event(models.Model):
   name = models.CharField(max_length = 50)
+  start_date = models.DateTimeField(null = True)
+  end_date = models.DateTimeField(null = True)
+  hosted_by = models.CharField(max_length = 100, null = True)
   devices = models.ManyToManyField(Device)
   inventories = models.ManyToManyField(Inventory)
+
+  def get_event_code(self):
+    return self.name.lower + self.start_date.year
+
+  event_code = self.get_event_code
+
   def __unicode__(self):
-    return u"%s" % self.name
+    return u"%s" % event_code
 
 class Review(models.Model):
   user = models.ForeignKey(User)
