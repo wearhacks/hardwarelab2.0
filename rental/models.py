@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from django.template.defaultfilters import slugify
 import os
 
 def get_image_filename(instance, old_filename):
@@ -69,17 +70,19 @@ class Event(models.Model):
   name = models.CharField(max_length = 50)
   start_date = models.DateTimeField(null = True)
   end_date = models.DateTimeField(null = True)
+  slug = models.SlugField(blank=True,
+         help_text="ie: Short name, required field for event page: http://wearhacks.com/events/'slug'")
   hosted_by = models.CharField(max_length = 100, null = True)
   devices = models.ManyToManyField(Device)
   inventories = models.ManyToManyField(Inventory)
 
-  def get_event_code(self):
-    return self.name.lower + self.start_date.year
-
-  event_code = self.get_event_code
+  def save(self, *args, **kwargs):
+    if not self.slug:
+      self.slug = slugify('%s-%d' % (self.name, self.start_date.year))
+    super(Event, self).save(*args, **kwargs)
 
   def __unicode__(self):
-    return u"%s" % event_code
+    return u"%s" % self.slug
 
 class Review(models.Model):
   user = models.ForeignKey(User)
