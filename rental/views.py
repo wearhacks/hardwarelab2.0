@@ -11,8 +11,8 @@ def cut(value, arg):
     return value[arg]
 
 
-def devices(request, event_name):
-  event = Event.objects.get(name=event_name)
+def devices(request, event_slug):
+  event = Event.objects.get(slug=event_slug)
   devices = Device.objects.all()
   event_inventory = Inventory.objects.filter(event=event)
   inventories = {}
@@ -27,9 +27,9 @@ def devices(request, event_name):
   }
   return render(request,'devices.html', content)
 
-def view_device(request, event_name, device_name):
+def view_device(request, event_slug, device_name):
   device = Device.objects.get(name=device_name)
-  event = Event.objects.get(name=event_name)
+  event = Event.objects.get(slug=event_slug)
 
   content = {
     'event' : event,
