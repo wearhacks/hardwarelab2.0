@@ -66,25 +66,19 @@ class Rental(models.Model):
 
   def __unicode__(self):
     return u"%s" % self.id
+    
+class Event(models.Model):
+  name = models.CharField(max_length = 50)
+  start_date = models.DateTimeField(null = True)
+  end_date = models.DateTimeField(null = True)
+  hosted_by = models.CharField(max_length = 100, null = True)
+  inventories = models.ManyToManyField(Inventory, blank = True)
 
- class Event(models.Model):
-   name = models.CharField(max_length = 50)
-   start_date = models.DateTimeField(null = True)
-   end_date = models.DateTimeField(null = True)
-   hosted_by = models.CharField(max_length = 100, null = True)
--  devices = models.ManyToManyField(Device)
--  inventories = models.ManyToManyField(Inventory)
-+  inventories = models.ManyToManyField(Inventory, blank = True)
- 
-   def get_event_code(self):
-     return self.name.lower + self.start_date.year
- 
--  event_code = self.get_event_code
--
-   def __unicode__(self):
--    return u"%s" % event_code
-+    return u"%s" % self.name
+  def get_event_code(self):
+    return self.name.lower + self.start_date.year
 
+  def __unicode__(self):
+    return u"%s" % self.name
 class Review(models.Model):
   user = models.ForeignKey(User)
   devices = models.ManyToManyField(Device)
