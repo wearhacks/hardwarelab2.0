@@ -21,8 +21,6 @@ def get_image_filename(instance, old_filename):
 
 class UserInfo(models.Model):
   user = models.OneToOneField(User, on_delete = models.CASCADE)
-  first_name = models.CharField(max_length = 50, blank=False)
-  last_name = models.CharField(max_length = 50, blank=False)
   phone_regex = RegexValidator(regex = r'^\+?1?\d{9,15}$',
                               message = "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
   phone_number = models.CharField(validators = [phone_regex], blank=False, max_length = 15) #validators should be a list
@@ -66,7 +64,9 @@ class Rental(models.Model):
 
   def __unicode__(self):
     return u"%s" % self.id
-    
+
+# class Reservation(models.Model):
+
 class Event(models.Model):
   name = models.CharField(max_length = 50)
   start_date = models.DateTimeField(null = True)
@@ -79,6 +79,7 @@ class Event(models.Model):
 
   def __unicode__(self):
     return u"%s" % self.name
+
 class Review(models.Model):
   user = models.ForeignKey(User)
   devices = models.ManyToManyField(Device)

@@ -3,6 +3,7 @@ from django.template.defaulttags import register
 from django.http import HttpResponse,JsonResponse
 from django.core import serializers
 from models import Device, Event, Inventory
+from django.contrib.auth.models import User
 # Create your views here.
 
 @register.filter(name='lookup')
@@ -57,3 +58,12 @@ def hardware_location(request):
         free_inventories[device.name] = unassigned_inventory.filter(device=device)
 
     return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
+
+def user_settings(request, user_name):
+  user = User.objects.get(username = user_name)
+
+  content = {
+    'user' : user
+  }
+
+  return render(request,'user_profile.html', content)
