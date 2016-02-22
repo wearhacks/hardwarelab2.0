@@ -62,8 +62,8 @@ ROOT_URLCONF = 'hardwarelab.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR,'templates'), 
-                os.path.join(BASE_DIR, 'templates', 'allauth'), 
+        'DIRS': [os.path.join(BASE_DIR,'templates'),
+                os.path.join(BASE_DIR, 'templates', 'allauth'),
                 os.path.join(BASE_DIR, 'templates', 'hardwarelab'),],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -125,6 +125,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static/')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static","hardwarelab"),
-    
+
 )
 SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'

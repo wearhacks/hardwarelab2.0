@@ -27,7 +27,7 @@ class UserInfo(models.Model):
   phone_number = models.CharField(validators = [phone_regex], blank=False, max_length = 15) #validators should be a list
 
 class Manufacturer(models.Model):
-  name = models.CharField(max_length = 50) 
+  name = models.CharField(max_length = 50)
   region = models.CharField(max_length = 50)
   contact_name = models.CharField(max_length = 50)
   contact_email = models.EmailField(max_length = 254)
@@ -35,19 +35,20 @@ class Manufacturer(models.Model):
     return u"%s" % self.name
 
 class Device(models.Model):
-  name = models.CharField(max_length = 50)
+  name = models.CharField(max_length = 100)
   manufacturer = models.ForeignKey(Manufacturer, default = 0)
   description = models.CharField(max_length = 250)
   image = models.ImageField(upload_to = get_image_filename, blank = True, null = True)
+
 
   def __unicode__(self):
     return u"%s" % self.name
 
 class Inventory(models.Model):
-  manufacturer = models.ForeignKey(Manufacturer, default = 0)
   device = models.ForeignKey(Device)
   serial_id = models.CharField(max_length = 50) #manually defined with the format: manufacturer.id+device.id+(prev_inventory.id + 1)
   rented = models.BooleanField(default = False)
+
   def __unicode__(self):
     return u"%s [ID: %s]" % (self.device.name,self.serial_id)
   class Meta:
@@ -70,16 +71,13 @@ class Event(models.Model):
   start_date = models.DateTimeField(null = True)
   end_date = models.DateTimeField(null = True)
   hosted_by = models.CharField(max_length = 100, null = True)
-  devices = models.ManyToManyField(Device)
-  inventories = models.ManyToManyField(Inventory)
+  inventories = models.ManyToManyField(Inventory, blank = True)
 
   def get_event_code(self):
     return self.name.lower + self.start_date.year
 
-  event_code = self.get_event_code
-
   def __unicode__(self):
-    return u"%s" % event_code
+    return u"%s" % self.name
 
 class Review(models.Model):
   user = models.ForeignKey(User)

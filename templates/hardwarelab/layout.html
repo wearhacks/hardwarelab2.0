@@ -12,21 +12,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <link rel='stylesheet' id='blink-google-fonts-css'  href='//fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700%7CPT+Serif%3Aregular%2Citalic%2C700%26subset%3Dlatin%2C&#038;ver=1.0.5' type='text/css' media='all' />
     <link rel="stylesheet" href="{% static 'bower_components/semantic-ui/dist/semantic.css' %}">
-
+    <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'bower_components/semantic-ui/dist/semantic.js' %}"></script>
       {% block script_section %}
       {% endblock %}
   </head>
 
   <body>
-
-    <p id="back-top">
-        <a href="#top"><i class="fa-caret-up fa"></i></a>
-    </p>
-    {% include 'navbar.html' %}
-
+        {% include 'navbar.html' %}
+    <div class="ui container" style="margin-top:40px">
       {% block content %}
 
       {% endblock %}
+    </div>
+
+
+
 
     {% block scripts %}{% endblock %}
 

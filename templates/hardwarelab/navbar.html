@@ -1,0 +1,25 @@
+Logged in As  {% load account %} {% user_display user %}
+<div class="ui fixed menu">
+    <div class="ui container">
+      <a href="#" class="header item">
+      HardwareLab</a>
+      <a href="#" class="item">Home</a>
+      {% if user.is_authenticated %}
+      <div class="ui simple dropdown item right">
+
+        <img style="margin-right: 10px;border-radius: 3px;" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />  {% user_display user %}
+        <i class="dropdown icon"></i>
+        <div class="menu">
+          <a class="item" href="#">Orders</a>
+          <a class="item" href="#">Settings</a>
+          <a class="item" href="/accounts/logout">Logout</a>
+            </div>
+      </div>
+        {% else %}
+          <a class="item right" href="/accounts/login">Login</a>
+        {% endif %}
+        {% load account %}
+
+      </div>
+    </div>
+  </div>
