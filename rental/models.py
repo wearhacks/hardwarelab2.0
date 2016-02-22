@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
+import datetime
 import os
 
 def get_image_filename(instance, old_filename):
@@ -68,29 +69,18 @@ class Rental(models.Model):
 class Reservation(models.Model):
   user = models.ForeignKey(User)
   inventory = models.ForeignKey(Inventory)
-  valid_thru = models.DateTimeField
+  valid_thru = models.DateTimeField(blank=True)
 
-
-# class Event(models.Model):
-#   name = models.CharField(max_length = 50)
-#   start_date = models.DateTimeField(null = True)
-#   end_date = models.DateTimeField(null = True)
-#   hosted_by = models.CharField(max_length = 100, null = True)
-#   inventories = models.ManyToManyField(Inventory, blank = True)
-
-#   def get_event_code(self):
-#     return self.name.lower + self.start_date.year
-
-#   def __unicode__(self):
-#     return u"%s" % self.name
+  def save(self, *args, **kwargs):
+    self.valid_thru = datetime.datetime.now() + datetime.timedelta(minutes = 120)
 
 
 class Event(models.Model):
   name = models.CharField(max_length = 50)
+  slug = models.SlugField(blank=True,
+         help_text="ie: Short name, required field for event page: http://wearhacks.com/events/<slug>")
   start_date = models.DateTimeField(null = True)
   end_date = models.DateTimeField(null = True)
-  slug = models.SlugField(blank=True,
-         help_text="ie: Short name, required field for event page: http://wearhacks.com/events/'slug'")
   hosted_by = models.CharField(max_length = 100, null = True)
   devices = models.ManyToManyField(Device)
   inventories = models.ManyToManyField(Inventory, blank = True)
@@ -101,7 +91,7 @@ class Event(models.Model):
     super(Event, self).save(*args, **kwargs)
 
   def __unicode__(self):
-    return u"%s" % self.slug
+    return u"%s" % self.name
 
 
 class Review(models.Model):
