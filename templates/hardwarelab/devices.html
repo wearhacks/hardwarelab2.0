@@ -1,11 +1,40 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<ul>
+<style media="screen">
+
+.ui.cards > .card > .image, .ui.card > .image {
+  height: 238px;
+  overflow: hidden;
+}
+</style>
+<h1>Hardware</h1>
+<div class="ui link cards">
+
  {% for device in devices %}
-  <li>
-    <h4><a href="/hardwarelab/{{event.name}}/{{device.name}}">{{ device.name }}</a></h4>
-  </li>
+
+    <div class="ui card">
+    <div class="image">
+      <img src="/media/{{device.image}}">
+    </div>
+    <div class="content">
+      <a class="header" href="/hardwarelab/{{event.name}}/{{device.name}}" >{{ device.name }}</a>
+      <div class="meta">
+        <span class="">{{device.manufacturer}}</span>
+      </div>
+      <div class="description">
+        {{device.description}}
+      </div>
+    </div>
+    <div class="extra content">
+      <a>
+        <i class="archive icon"></i>
+
+        {{ inventories|lookup:device.name | length }}
+      </a>
+    </div>
+  </div>
   {% endfor %}
-</ul>
+
+</div>
 {% endblock %}
