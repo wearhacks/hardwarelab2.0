@@ -65,20 +65,44 @@ class Rental(models.Model):
   def __unicode__(self):
     return u"%s" % self.id
 
-# class Reservation(models.Model):
+class Reservation(models.Model):
+  user = models.ForeignKey(User)
+  inventory = models.ForeignKey(Inventory)
+  valid_thru = models.DateTimeField
+
+
+# class Event(models.Model):
+#   name = models.CharField(max_length = 50)
+#   start_date = models.DateTimeField(null = True)
+#   end_date = models.DateTimeField(null = True)
+#   hosted_by = models.CharField(max_length = 100, null = True)
+#   inventories = models.ManyToManyField(Inventory, blank = True)
+
+#   def get_event_code(self):
+#     return self.name.lower + self.start_date.year
+
+#   def __unicode__(self):
+#     return u"%s" % self.name
+
 
 class Event(models.Model):
   name = models.CharField(max_length = 50)
   start_date = models.DateTimeField(null = True)
   end_date = models.DateTimeField(null = True)
+  slug = models.SlugField(blank=True,
+         help_text="ie: Short name, required field for event page: http://wearhacks.com/events/'slug'")
   hosted_by = models.CharField(max_length = 100, null = True)
+  devices = models.ManyToManyField(Device)
   inventories = models.ManyToManyField(Inventory, blank = True)
 
-  def get_event_code(self):
-    return self.name.lower + self.start_date.year
+  def save(self, *args, **kwargs):
+    if not self.slug:
+      self.slug = slugify('%s-%d' % (self.name, self.start_date.year))
+    super(Event, self).save(*args, **kwargs)
 
   def __unicode__(self):
-    return u"%s" % self.name
+    return u"%s" % self.slug
+
 
 class Review(models.Model):
   user = models.ForeignKey(User)
