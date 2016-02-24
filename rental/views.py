@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.template.defaulttags import register
 from django.http import HttpResponse,JsonResponse
 from django.core import serializers
-from models import Device, Event, Inventory
+from models import UserProfile, Device, Event, Inventory
 from django.contrib.auth.models import User
+from forms import UserSettingsForm
 # Create your views here.
 
 @register.filter(name='lookup')
@@ -61,9 +62,18 @@ def hardware_location(request):
 
 def user_settings(request, user_name):
   user = User.objects.get(username = user_name)
-
+  user_profile = UserProfile.objects.get(user = user)
+  user_form = UserSettingsForm(
+    initial = {
+      'first_name': user_profile.user.first_name,
+      'last_name' : user_profile.user.last_name,
+      'phone_number' : user_profile.phone_number,
+      'email' : user_profile.user.email
+    }
+  )
   content = {
-    'user' : user
+    'user_profile' : user_profile,
+    'user_settings_form' : user_form
   }
 
-  return render(request,'user_profile.html', content)
+  return render(request,'user_settings.html', content)

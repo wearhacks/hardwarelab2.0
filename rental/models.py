@@ -1,7 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
+from django.db.models.signals import post_save
+from registration.signals import user_registered
 from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
+
 import datetime
 import os
 
@@ -20,7 +24,7 @@ def get_image_filename(instance, old_filename):
 
 
 
-class UserInfo(models.Model):
+class UserProfile(models.Model):
   user = models.OneToOneField(User, on_delete = models.CASCADE)
   phone_regex = RegexValidator(regex = r'^\+?1?\d{9,15}$',
                               message = "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
@@ -56,7 +60,7 @@ class Inventory(models.Model):
     order_with_respect_to = 'device'
 
 class Rental(models.Model):
-  user = models.ForeignKey(User)
+  user = models.ForeignKey(UserProfile)
   device = models.ForeignKey(Device)
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True) #is this really needed?
@@ -67,7 +71,7 @@ class Rental(models.Model):
     return u"%s" % self.id
 
 class Reservation(models.Model):
-  user = models.ForeignKey(User)
+  user = models.ForeignKey(UserProfile)
   inventory = models.ForeignKey(Inventory)
   valid_thru = models.DateTimeField(blank=True)
 
@@ -95,7 +99,7 @@ class Event(models.Model):
 
 
 class Review(models.Model):
-  user = models.ForeignKey(User)
+  user = models.ForeignKey(UserProfile)
   devices = models.ManyToManyField(Device)
   comfort_level = models.IntegerField()
   device_rating = models.IntegerField()

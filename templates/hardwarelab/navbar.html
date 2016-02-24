@@ -11,7 +11,7 @@ Logged in As  {% load account %} {% user_display user %}
         <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item" href="#">Orders</a>
-          <a class="item" href="#">Settings</a>
+          <a class="item" href="/user/{% user_display user %}">Settings</a>
           <a class="item" href="/accounts/logout">Logout</a>
             </div>
       </div>
