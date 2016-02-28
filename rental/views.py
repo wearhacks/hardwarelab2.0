@@ -19,25 +19,15 @@ import json
 def cut(value, arg):
     return value[arg]
 
-
-# def custom_login(request,*args, **kwargs):
-#     response = login(request, *args, **kwargs)
-#     if request.user.is_authenticated():
-#          messages.info(request, "Welcome ...")
-#     return response
-
-def phone_number_warning_message(sender, **kwargs):
+def phone_number_warning_message(**kwargs):
     """
     Add a welcome message when the user logs in
     """
-    print sender, kwargs
     user_profile = UserProfile.objects.get(user = kwargs["user"])
-    print user_profile.phone_number
     if user_profile.phone_number in ['', None]:
-      print 'WE GOT THIS'
       messages.warning(kwargs["request"], "You must add your phone number to your profile")
 
-user_logged_in.connect(phone_number_warning_message, sender=User)
+user_logged_in.connect(phone_number_warning_message)
 
 def devices(request, event_slug):
   event = Event.objects.get(slug=event_slug)
@@ -67,11 +57,18 @@ def view_device(request, event_slug, device_name):
   rentals = Rental.objects.filter(inventory = event_inventory, returned = False)
   
   free = event_inventory.count() - rentals.count()
+
+  user_profile = ''
+
+  if request.user.is_authenticated():
+    phone_number_warning_message(request = request, user = request.user)
+    user_profile = UserProfile.objects.get(user = request.user)
   content = {
     'event' : event,
     'device' : device,
     'rentals' : rentals,
-    'free' : free
+    'free' : free,
+    'user_profile' : user_profile
   }
   return render(request,'view_device.html', content)
 
