@@ -8,8 +8,8 @@
           <form action="" method="POST" class="ui form">
             {% csrf_token %} {{ user_profile_form.as_p }}
             {{ user_profile_formset.management_form }}
-                {{ user_profile_formset.user_name}}
-                {{ user_profile_formset.as_p }}
+              {{ user_profile_formset.user_name}}
+              {{ user_profile_formset.as_p }}
             <button type="submit" class="ui primary button">Save</button>
             <a href="#" onclick="window.history.back(); return false;" title="Cancel" class="ui button">Cancel</a>
         </form>
