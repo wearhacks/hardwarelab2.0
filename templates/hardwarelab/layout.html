@@ -34,9 +34,7 @@
       {% if messages %}
         {% for message in messages %}
           <div class="ui {{ message.tags }} message">
-            {% if messages.tags == "success"%}
-              <i class="close icon"></i>
-            {% endif%}
+            <i class="close icon"></i>
             {{ message }}
           </div>
         {% endfor %}
