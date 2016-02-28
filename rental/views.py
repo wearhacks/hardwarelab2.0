@@ -49,28 +49,19 @@ def home(request):
 
 #custom view to see where all the hardware are located
 def hardware_location(request):
-    inventories = {}
-    free_inventories = {}
-    for event in Event.objects.all():
-        event_inventory = Inventory.objects.filter(event=event)
-        inventories[event.name] = {}
-        for device in Device.objects.all():
-            inventories[event.name][device.name] = event_inventory.filter(device=device)
-
-    unassigned_inventory = Inventory.objects.filter(event=None)
+  inventories = {}
+  free_inventories = {}
+  for event in Event.objects.all():
+    event_inventory = Inventory.objects.filter(event=event)
+    inventories[event.name] = {}
     for device in Device.objects.all():
-        free_inventories[device.name] = unassigned_inventory.filter(device=device)
+      inventories[event.name][device.name] = event_inventory.filter(device=device)
 
-    return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
+  unassigned_inventory = Inventory.objects.filter(event=None)
+  for device in Device.objects.all():
+    free_inventories[device.name] = unassigned_inventory.filter(device=device)
 
-# def user_settings(request, user_name):
-#   user = User.objects.get(username = user_name)
-
-#   content = {
-#     'user' : user
-#   }
-
-#   return render(request,'user_profile.html', content)
+  return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
 
 @login_required
 def user_profile(request, user_name):
