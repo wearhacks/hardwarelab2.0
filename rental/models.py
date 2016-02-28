@@ -5,7 +5,7 @@ from django.db.models.signals import post_save
 from registration.signals import user_registered
 from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
-
+from django.forms import ModelForm
 import datetime
 import os
 
@@ -60,23 +60,27 @@ class Inventory(models.Model):
     order_with_respect_to = 'device'
 
 class Rental(models.Model):
-  user = models.ForeignKey(UserProfile)
-  device = models.ForeignKey(Device)
+  user = models.ForeignKey(User)
+  inventory = models.ForeignKey(Inventory)
+
+  reservation = models.BooleanField(default = True) 
   created_at = models.DateTimeField(auto_now_add = True)
   updated_at = models.DateTimeField(auto_now = True) #is this really needed?
-  returned_at = models.DateTimeField(null = True)
-  hack_finished = models.BooleanField(default = True)
+  
+  hack_finished = models.BooleanField(default = False)
+  returned = models.BooleanField(default = False)
+  
+  returned_at = models.DateTimeField(null = True, blank=True)
 
   def __unicode__(self):
-    return u"%s" % self.id
+    return u"%s %s" % (self.user, self.inventory)
 
-class Reservation(models.Model):
-  user = models.ForeignKey(UserProfile)
-  inventory = models.ForeignKey(Inventory)
-  valid_thru = models.DateTimeField(blank=True)
-
-  def save(self, *args, **kwargs):
-    self.valid_thru = datetime.datetime.now() + datetime.timedelta(minutes = 120)
+#class Reservation(models.Model):
+#  user = models.ForeignKey(User)
+#  inventory = models.ForeignKey(Inventory)
+#  valid_thru = models.DateTimeField(blank=True)
+#  def save(self, *args, **kwargs):
+#    self.valid_thru = datetime.datetime.now() + datetime.timedelta(minutes = 120)
 
 
 class Event(models.Model):
@@ -105,3 +109,4 @@ class Review(models.Model):
   device_rating = models.IntegerField()
   improvements = models.CharField(max_length = 500)
   other_comments = models.CharField(max_length = 500)
+
