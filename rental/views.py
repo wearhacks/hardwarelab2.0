@@ -1,12 +1,16 @@
 from django.shortcuts import render
 from django.template.defaulttags import register
-from django.http import HttpResponse,JsonResponse, HttpResponseBadRequest
+from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.core import serializers
-from models import Device, Event, Inventory, Rental
+from models import UserProfile, Device, Event, Inventory, Rental
+from forms import UserProfileForm
 from django.core import serializers
-from models import UserProfile, Device, Event, Inventory
+from django.contrib import messages
+from django.contrib.auth.signals import user_logged_in
 from django.contrib.auth.models import User
-from forms import UserSettingsForm
+from django.contrib.auth.decorators import login_required
+from django.forms.models import inlineformset_factory
+from django.core.exceptions import PermissionDenied
 from django.db.models import Q
 import json
 # Create your views here.
@@ -15,6 +19,25 @@ import json
 def cut(value, arg):
     return value[arg]
 
+
+# def custom_login(request,*args, **kwargs):
+#     response = login(request, *args, **kwargs)
+#     if request.user.is_authenticated():
+#          messages.info(request, "Welcome ...")
+#     return response
+
+def phone_number_warning_message(sender, **kwargs):
+    """
+    Add a welcome message when the user logs in
+    """
+    print sender, kwargs
+    user_profile = UserProfile.objects.get(user = kwargs["user"])
+    print user_profile.phone_number
+    if user_profile.phone_number in ['', None]:
+      print 'WE GOT THIS'
+      messages.warning(kwargs["request"], "You must add your phone number to your profile")
+
+user_logged_in.connect(phone_number_warning_message, sender=User)
 
 def devices(request, event_slug):
   event = Event.objects.get(slug=event_slug)
@@ -98,20 +121,32 @@ def rent_device(request):
   
 
 
-def user_settings(request, user_name):
-  user = User.objects.get(username = user_name)
-  user_profile = UserProfile.objects.get(user = user)
-  user_form = UserSettingsForm(
-    initial = {
-      'first_name': user_profile.user.first_name,
-      'last_name' : user_profile.user.last_name,
-      'phone_number' : user_profile.phone_number,
-      'email' : user_profile.user.email
-    }
-  )
-  content = {
-    'user_profile' : user_profile,
-    'user_settings_form' : user_form
-  }
+@login_required
+def user_profile(request, user_name):
+  user = User.objects.get(username=user_name)
+  user_profile_form = UserProfileForm(instance=user)
 
-  return render(request,'user_settings.html', content)
+  ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('phone_number',))
+  UserProfileFormset = ProfileInlineFormset(instance=user)
+
+  if request.user.is_authenticated(): #and request.user.id == user.id:
+    if request.method == "POST":
+      user_profile_form = UserProfileForm(request.POST, request.FILES, instance=user)
+      UserProfileFormset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
+
+      if user_profile_form.is_valid():
+        created_user = user_profile_form.save(commit=False)
+        UserProfileFormset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+
+        if UserProfileFormset.is_valid():
+          created_user.save()
+          UserProfileFormset.save()
+          return HttpResponseRedirect('/', user_name)
+
+    return render(request, "user_profile.html", {
+    "user_name": user_name,
+    "user_profile_form": user_profile_form,
+    "user_profile_formset": UserProfileFormset,
+    })
+  else:
+    raise PermissionDenied

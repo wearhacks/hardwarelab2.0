@@ -50,19 +50,23 @@ $.ajaxSetup({
 $(document).ready(function(){
     
     $("#logout").click(function(){
-            $('#logout-modal').modal({
-                closable  : false,
-                onDeny    : function(){
-                  
-                  return true;
-                },
-                onApprove : function() {
-                  $.post("/accounts/logout/",function() {
-                    document.location.href="/";
-                  });
-                }
-                })
-                .modal('show');
+        $('#logout-modal').modal({
+            closable  : false,
+            onDeny    : function(){
+              
+              return true;
+            },
+            onApprove : function() {
+              $.post("/accounts/logout/",function() {
+                document.location.href="/";
+              });
+            }
+        })
+        .modal('show');
+    });
+
+    $('.message .close').on('click', function() {
+        $(this).closest('.message').transition('fade');
     });
 
 
