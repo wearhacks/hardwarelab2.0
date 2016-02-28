@@ -13,6 +13,8 @@ urlpatterns = [
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^admin/allinventory', 'rental.views.hardware_location'),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^api/rent/$', 'rental.views.rent_device'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
