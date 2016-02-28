@@ -10,6 +10,7 @@ dist/
 # Migrations
 */migrations*
 migrate.sh
+/rental/migrations/
 
 static/CACHE/
 

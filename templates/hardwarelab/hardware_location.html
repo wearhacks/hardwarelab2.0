@@ -1,0 +1,88 @@
+
+{% extends "layout.html" %}
+{% block title %} Hardware Location {% endblock %}
+{% block script_section %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    $('.ui.accordion').accordion();
+  });
+</script>
+{% endblock %}
+{% block content %}
+<br>
+<div class="ui info message">
+  <div class="header">
+    Hardware Location
+  
+  </div>
+  <ul class="list">
+    <li>This page gives an overview of where all the hardware are presently located
+    </li>
+  </ul>
+</div>
+
+
+{% for key, inventories in inventories.items %}
+  <h4>Event: {{key}}</h4>
+
+
+  <div class="ui styled fluid accordion">
+  {% for device,inventory in inventories.items %}
+  <div class="title">
+    <i class="dropdown icon"></i>
+    <a class="ui teal image label">
+      {{device}}(s)
+      <div class="detail">{{inventory|length}}</div>
+    </a>
+
+  </div>
+  <div class="content">
+    <ul>
+      {% for b in inventory %}
+            <li>{{b}}</li>
+
+      {% endfor %}
+    </ul>
+
+      {% if inventory|length == 0%}
+          <p>
+            No {{device}} at this event!
+          </p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+{% endfor %}
+
+
+  <div class="ui segment ">
+
+
+  <h4>Free Inventory (Storage)</h4>
+  <div class="ui accordion">
+  {% for device,inventory in free_inventories.items %}
+  <div class="title">
+    <i class="dropdown icon"></i>
+    <div class="ui teal image label">
+      {{device}}(s)
+      <div class="detail">{{inventory|length}}</div>
+    </div>
+  </div>
+  <div class="content">
+    <ul>
+      {% for b in inventory %}
+            <li>{{b}}</li>
+
+      {% endfor %}
+    </ul>
+
+      {% if inventory|length == 0%}
+          <p>
+            No {{device}} at this event!
+          </p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+  </div>
+{% endblock %}

@@ -1,11 +1,49 @@
 
 {% extends "layout.html" %}
 {% block content %}
-<ul>
+<style media="screen">
+
+.ui.cards >  .card > .header  > .image, .ui.card >  .header > .image {
+  height: 238px;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+</style>
+<div class="ui center aligned basic segment">
+
+<h1 class="ui header">{{event}}
+  <div class="sub header">HardwareLab</div>
+</h1>
+</div>
+<div class="ui link cards">
+
  {% for device in devices %}
-  <li>
-    <h4><a href="/hardwarelab/{{event.name}}/{{device.name}}">{{ device.name }}</a></h4>
-  </li>
+    
+  <div class="ui teal card">
+    <a class="header" href="/hardwarelab/{{event.slug}}/{{device.name}}" >
+    <div class="image" style="background-image:url('/media/{{device.image}}')">
+    </div>
+    </a>
+    <div class="content">
+      <a href="" class="header"></a> {{ device.name }}
+      <div class="meta">
+        <span class="">{{device.manufacturer}}</span>
+      </div>
+      <div class="description">
+        {{device.description}}
+      </div>
+    </div>
+    <div class="extra content">
+        
+      <span class="ui label teal"><i class="archive icon"></i>{{ inventories_free|lookup:device.name }} in stock</span>
+      
+
+        
+       <span class="right" style="float:right"> {{ inventories|lookup:device.name | length }} Total</span>
+    </div>
+  </div>
   {% endfor %}
-</ul>
+
+</div>
 {% endblock %}
