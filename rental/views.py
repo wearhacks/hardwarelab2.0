@@ -1,9 +1,13 @@
 from django.shortcuts import render
 from django.template.defaulttags import register
-from django.http import HttpResponse,JsonResponse
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.core import serializers
-from models import Device, Event, Inventory
+from .models import UserProfile, Device, Event, Inventory
+from .forms import UserProfileForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.forms.models import inlineformset_factory
+from django.core.exceptions import PermissionDenied
 # Create your views here.
 
 @register.filter(name='lookup')
@@ -59,11 +63,41 @@ def hardware_location(request):
 
     return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
 
-def user_settings(request, user_name):
-  user = User.objects.get(username = user_name)
+# def user_settings(request, user_name):
+#   user = User.objects.get(username = user_name)
 
-  content = {
-    'user' : user
-  }
+#   content = {
+#     'user' : user
+#   }
 
-  return render(request,'user_profile.html', content)
+#   return render(request,'user_profile.html', content)
+
+@login_required
+def user_profile(request, user_name):
+  user = User.objects.get(username=user_name)
+  user_form = UserProfileForm(instance=user)
+
+  ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('phone_number',))
+  formset = ProfileInlineFormset(instance=user)
+
+  if request.user.is_authenticated(): #and request.user.id == user.id:
+    if request.method == "POST":
+      user_form = UserProfileForm(request.POST, request.FILES, instance=user)
+      formset = ProfileInlineFormset(request.POST, request.FILES, instance=user)
+
+      if user_form.is_valid():
+        created_user = user_form.save(commit=False)
+        formset = ProfileInlineFormset(request.POST, request.FILES, instance=created_user)
+
+        if formset.is_valid():
+          created_user.save()
+          formset.save()
+          return HttpResponseRedirect('/', user_name)
+
+    return render(request, "user_profile.html", {
+    "noodle": user_name,
+    "noodle_form": user_form,
+    "formset": formset,
+    })
+  else:
+    raise PermissionDenied
