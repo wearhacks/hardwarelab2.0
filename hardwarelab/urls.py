@@ -9,7 +9,7 @@ urlpatterns = [
     url(r'^hardwarelab/(?P<event_slug>.*)/$', 'rental.views.devices', name='devices'),
     url(r'^hardwarelab/(?P<event_slug>.*)/(?P<device_name>.*)','rental.views.view_device'),
     url(r'^hardwarelab/inventory','rental.views.hardware_location'),
-    url(r'^user/(?P<user_name>.*)','rental.views.user_profile'),
+    url(r'^me/','rental.views.user_profile'),
     # url(r'^blog/', include('blog.urls')),
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),

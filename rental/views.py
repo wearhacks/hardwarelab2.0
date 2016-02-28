@@ -116,8 +116,8 @@ def rent_device(request):
     return HttpResponseBadRequest("Sorry, there are no more " + device.name + " in stock!")
 
 @login_required
-def user_profile(request, user_name):
-  user = User.objects.get(username=user_name)
+def user_profile(request):
+  user = User.objects.get(pk=request.user.id)
   user_profile_form = UserProfileForm(instance=user)
 
   ProfileInlineFormset = inlineformset_factory(User, UserProfile, fields=('phone_number',))
@@ -135,10 +135,10 @@ def user_profile(request, user_name):
         if UserProfileFormset.is_valid():
           created_user.save()
           UserProfileFormset.save()
-          return HttpResponseRedirect('/', user_name)
+          return HttpResponseRedirect('/', user.username)
 
     context = {
-      "user_name": user_name,
+      "user_name": user.username,
       "user_profile_form": user_profile_form,
       "user_profile_formset": UserProfileFormset,
     }
