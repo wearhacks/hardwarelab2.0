@@ -1,5 +1,7 @@
 from django.db import models
+from django.contrib.auth.views import login
 from django.contrib.auth.models import User
+from django.contrib.auth.signals import user_logged_in
 from django.core.validators import RegexValidator
 from django.template.defaultfilters import slugify
 from django.db.models.signals import post_save
@@ -19,6 +21,14 @@ def get_image_filename(instance, old_filename):
   )
   return filename
 
+def check_user_info(sender, request, user, **kwargs):
+  user_profile = UserProfile(user = user)
+  response = login(request, *args, **kwargs)
+  if request.user.is_authenticated():
+    messages.info(request, "Welcome auth...")
+    if user_profile.phone_number is None:
+      messages.info(request, "Welcome phone...")
+  return response
 
 
 
