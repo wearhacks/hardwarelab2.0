@@ -116,4 +116,3 @@ class Review(models.Model):
   device_rating = models.IntegerField()
   improvements = models.CharField(max_length = 500)
   other_comments = models.CharField(max_length = 500)
-
