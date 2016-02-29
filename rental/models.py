@@ -1,10 +1,13 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 from django.template.defaultfilters import slugify
 from django.forms import ModelForm
 import datetime
 import os
+
 
 def get_image_filename(instance, old_filename):
   folder = ''
@@ -18,14 +21,29 @@ def get_image_filename(instance, old_filename):
   )
   return filename
 
+def check_user_info(sender, request, user, **kwargs):
+  user_profile = UserProfile(user = user)
+  response = login(request, *args, **kwargs)
+  if request.user.is_authenticated():
+    messages.info(request, "Welcome auth...")
+    if user_profile.phone_number is None:
+      messages.info(request, "Welcome phone...")
+  return response
 
 
 
-class UserInfo(models.Model):
+class UserProfile(models.Model):
   user = models.OneToOneField(User, on_delete = models.CASCADE)
   phone_regex = RegexValidator(regex = r'^\+?1?\d{9,15}$',
                               message = "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
-  phone_number = models.CharField(validators = [phone_regex], blank=False, max_length = 15) #validators should be a list
+  phone_number = models.CharField(validators = [phone_regex], blank=True, max_length = 15) #validators should be a list
+
+def create_profile(sender, **kwargs):
+    user = kwargs["instance"]
+    if kwargs["created"]:
+        user_profile = UserProfile(user=user)
+        user_profile.save()
+post_save.connect(create_profile, sender=User)
 
 class Manufacturer(models.Model):
   name = models.CharField(max_length = 50)
@@ -72,15 +90,6 @@ class Rental(models.Model):
   def __unicode__(self):
     return u"%s %s" % (self.user, self.inventory)
 
-#class Reservation(models.Model):
-#  user = models.ForeignKey(User)
-#  inventory = models.ForeignKey(Inventory)
-#  valid_thru = models.DateTimeField(blank=True)
-
-#  def save(self, *args, **kwargs):
-#    self.valid_thru = datetime.datetime.now() + datetime.timedelta(minutes = 120)
-
-
 class Event(models.Model):
   name = models.CharField(max_length = 50)
   slug = models.SlugField(blank=True,
@@ -101,7 +110,7 @@ class Event(models.Model):
 
 
 class Review(models.Model):
-  user = models.ForeignKey(User)
+  user = models.ForeignKey(UserProfile)
   devices = models.ManyToManyField(Device)
   comfort_level = models.IntegerField()
   device_rating = models.IntegerField()
