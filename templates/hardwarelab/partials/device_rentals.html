@@ -1,28 +1,28 @@
 <div class="ui segment">
   Available <span class="ui teal label">{{free}}</span>
 </div>
-    <div class="ui top attached segment ">
-      <b>Reservations</b>
+
+<div class="ui top attached segment ">
+  <b>Reservations</b>
+</div>
+{% for rental in rentals %}
+  {% if rental.reservation %}
+  <div class="ui attached segment ">    
+    <img class="ui avatar image" src="{{ rental.user.socialaccount_set.all.0.get_avatar_url }}" /> 
+    <span>@{{rental.user}}</span> <span class="ui label mini">{{rental.inventory}}</span>
+  </div>
+  {% endif %}
+{% endfor %}
+<div class="ui top attached segment ">
+  <b>Rentals</b>
+</div>
+   {% for rental in rentals %}
+   {% if not rental.reservation %}
+    <div class="ui attached segment ">
+      
+      <img class="ui avatar image" src="{{ rental.user.socialaccount_set.all.0.get_avatar_url }}" /> 
+      <span>@{{rental.user}}</span>
+      <span class="ui label mini">{{rental.inventory}}</span>
     </div>
-     {% for rental in rentals %}
-        {% if rental.reservation %}
-        <div class="ui attached segment ">
-          
-          <img class="ui avatar image" src="{{ rental.user.socialaccount_set.all.0.get_avatar_url }}" /> 
-          <span>@{{rental.user}}</span> <span class="ui label mini">{{rental.inventory}}</span>
-        </div>
-        {% endif %}
-      {% endfor %}
-    <div class="ui top attached segment ">
-      <b>Rentals</b>
-    </div>
-       {% for rental in rentals %}
-       {% if not rental.reservation %}
-        <div class="ui attached segment ">
-          
-          <img class="ui avatar image" src="{{ rental.user.socialaccount_set.all.0.get_avatar_url }}" /> 
-          <span>@{{rental.user}}</span>
-          <span class="ui label mini">{{rental.inventory}}</span>
-        </div>
-        {% endif %}
-      {% endfor %}
+    {% endif %}
+  {% endfor %}

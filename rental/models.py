@@ -41,6 +41,12 @@ class UserProfile(models.Model):
   def __unicode__(self):
     return u"%s" % self.user
 
+class Manager(models.Model):
+  user = models.ForeignKey(User)
+  def __unicode__(self):
+    return u"%s" % self.user
+  
+
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]
     if kwargs["created"]:
@@ -76,29 +82,14 @@ class Inventory(models.Model):
     verbose_name_plural = "Inventory"
     order_with_respect_to = 'device'
 
-class Rental(models.Model):
-  user = models.ForeignKey(User)
-  inventory = models.ForeignKey(Inventory)
-
-  reservation = models.BooleanField(default = True) 
-  created_at = models.DateTimeField(auto_now_add = True)
-  updated_at = models.DateTimeField(auto_now = True) #is this really needed?
-  
-  hack_finished = models.BooleanField(default = False)
-  returned = models.BooleanField(default = False)
-  
-  returned_at = models.DateTimeField(null = True, blank=True)
-
-  def __unicode__(self):
-    return u"%s %s" % (self.user, self.inventory)
-
 class Event(models.Model):
   name = models.CharField(max_length = 50)
   slug = models.SlugField(blank=True,
          help_text="ie: Short name, required field for event page: http://wearhacks.com/events/<slug>")
   start_date = models.DateTimeField(null = True)
   end_date = models.DateTimeField(null = True)
-  hosted_by = models.CharField(max_length = 100, null = True)
+  host = models.CharField(max_length = 100, null = True)
+  managers = models.ManyToManyField(Manager)
   devices = models.ManyToManyField(Device)
   inventories = models.ManyToManyField(Inventory, blank = True)
 
@@ -109,6 +100,21 @@ class Event(models.Model):
 
   def __unicode__(self):
     return u"%s" % self.name
+
+class Rental(models.Model):
+  user = models.ForeignKey(User)
+  inventory = models.ForeignKey(Inventory)
+  event = models.ForeignKey(Event)
+  reservation = models.BooleanField(default = True) 
+  created_at = models.DateTimeField(auto_now_add = True)
+    
+  hack_finished = models.BooleanField(default = False)
+  returned = models.BooleanField(default = False)
+  
+  returned_at = models.DateTimeField(null = True, blank=True)
+
+  def __unicode__(self):
+    return u"%s %s" % (self.user, self.inventory)
 
 class Review(models.Model):
   user = models.ForeignKey(UserProfile)

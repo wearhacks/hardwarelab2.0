@@ -1,0 +1,114 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+$(document).ready(function(){
+    $(".create-rental").on("click", function() {
+      $rental_id = $(this).siblings("#rental-id").attr("value");
+      console.log($rental_id);
+        $("#create-rental-modal").modal({
+          closable  : true,
+          onDeny    : function(){
+            return true;
+          },
+          onApprove : function() {
+            $.ajax({
+              url : "/api/rent/", // the endpoint
+              type : "GET", // http method
+              data : { 
+                rental_id: $rental_id
+              },
+              success : function(data) {
+                location.reload();
+              }, 
+              error: function(data) {
+                alertify.alert(data.responseText);
+              }
+            });
+          },
+        }).modal('show');
+    });
+});
+</script> 
+<!-- {{ rentals }} -->
+<div class="ui segment">
+  <h2 class="ui header">Current Reservations:</h2>
+  {% if reservations|length == 0 %}
+    <p>No reservatoions</p>
+  {% endif %}
+  <div id="reservations" class="ui cards">
+    {% for reservation in reservations %}
+        <div class="ui blue card">
+          <div class="content">
+            <a class="header">{{reservation.user.first_name}} {{reservation.user.last_name}}</a>
+            <div class="meta">
+              <div class="ui label">{{reservation.inventory.device.name}}</div>
+              <div class="ui label">Inventory ID: {{reservation.inventory.id}}</div>
+              <div class="ui label">Rental ID: {{reservation.id}}</div>
+            </div>
+            <div class="description">
+            </div>
+          </div>
+          <div class="create-rental">
+            <div class="ui bottom attached button">
+              <i class="fa fa-plus-square"></i> 
+              Create Rental
+            </div>
+          </div>
+          <div hidden id="rental-id" value="{{reservation.id}}"></div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="ui segment">
+  <h2 class="ui header">Current Rentals:</h2>
+  {% if rentals|length == 0 %}
+    <p>No rentals</p>
+  {% endif %}
+  <div id="rentals" class="ui cards">
+    {% for rental in rentals %}
+        <div class="ui blue card">
+          <div class="content">
+            <a class="header">{{rental.user.first_name}} {{rental.user.last_name}}</a>
+            <div class="meta">
+              <div class="ui label">{{rental.inventory.device.name}}</div>
+              <div class="ui label">Inventory ID: {{rental.inventory.id}}</div>
+              <div class="ui label">Rental ID: {{rental.id}}</div>
+            </div>
+            <div class="description">
+            </div>
+          </div>
+          <div class="return">
+            <div class="ui bottom attached button">
+              <i class="fa fa-undo"></i> 
+              Return
+            </div>
+          </div>
+          <div hidden id="rental-id" value="{{rental.id}}"></div>
+        </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<div id="create-rental-modal" class="ui modal small">
+  <div class="ui icon header">
+  <i class="archive icon"></i>
+    Cancel Reservation<br/>
+    <small>Do you want to create this rental?</small>
+  </div>
+
+  <div class="actions centered">
+    
+      <div class="ui cancel button">
+        <i class="remove icon"></i>
+        My bad!
+      </div>
+      <div class="ui teal approve button">
+        <i class="checkmark icon"></i>
+        Yes, please!
+      </div>  
+  </div>
+</div>
+
+{% endblock %}

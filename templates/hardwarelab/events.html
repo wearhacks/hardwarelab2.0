@@ -2,13 +2,26 @@
 {% extends "layout.html" %}
 {% block content %}
 <div class="ui segment">
-  <ul>
+  <div class="ui cards">
    {% for event in events %}
-    <li>
-      <h4><a href="/hardwarelab/{{event.slug}}">{{ event.name }}</a></h4>
-    </li>
+    <div class="ui card">
+    	<div class="content">
+      	<div class="header">{{ event.name }}</div>
+      	<div class="meta">{{ event.host }}</div>
+      	<div class="description">
+      		<p>Starts: {{ event.start_date }}</p>
+      		<p> Ends{{ event.end_date }}</p>
+      	</div>
+    	</div>
+    	<div class="extra content">
+		    <a class="ui right floated primary button" href="hardwarelab/{{event.slug}}">Enter Lab</a>
+	  		{% if event in managed_events%}
+			    <a class="ui button" href="hardwarelab/{{event.slug}}/manager">Manage</a>
+	  		{% endif %}
+		  </div>
+    </div>
     {% endfor %}
-  </ul>
+	</div>
 </div>
 
 {% endblock %}

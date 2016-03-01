@@ -55,6 +55,8 @@ $(document).ready(function(){
   <p>{{device.description}}</p>
   {% if user.is_authenticated %}
     <a id="rent-device" class="ui button">Reserve Device</a>
+  {% else %}
+    <a href="/accounts/login"><div class="ui compact message">Login to reserve</div></a>
   {% endif %}
 
 </div>

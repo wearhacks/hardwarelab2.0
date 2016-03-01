@@ -1,5 +1,5 @@
 from django.contrib import admin
-from rental.models import Device, Event, Inventory, Manufacturer, Review, Rental, UserProfile
+from rental.models import Device, Event, Inventory, Manufacturer, Review, Rental, UserProfile, Manager
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 from django.db.models import Q
@@ -36,6 +36,9 @@ class ReviewAdmin(admin.ModelAdmin):
 class ReservationAdmin(admin.ModelAdmin):
   pass
 
+class ManagerAdmin(admin.ModelAdmin):
+  pass
+
 class UserProfileInline(admin.StackedInline):
     model = UserProfile
     can_delete = False
@@ -60,4 +63,5 @@ admin.site.register(Device, DeviceInline)
 admin.site.register(Inventory, InventoryAdmin)
 admin.site.register(Manufacturer, ManufacturerAdmin)
 admin.site.register(Review, ReviewAdmin)
-admin.site.register(Rental,RentalAdmin)
+admin.site.register(Rental, RentalAdmin)
+admin.site.register(Manager, ManagerAdmin)

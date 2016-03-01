@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.template.defaulttags import register
 from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest, HttpResponseRedirect
 from django.core import serializers
-from models import UserProfile, Device, Event, Inventory, Rental
+from models import UserProfile, Device, Event, Inventory, Rental, Manager
 from forms import UserProfileForm
 from django.core import serializers
 from django.contrib import messages
@@ -31,8 +31,8 @@ user_logged_in.connect(phone_number_warning_message)
 
 def devices(request, event_slug):
   event = Event.objects.get(slug=event_slug)
-  devices = Device.objects.all()
-  event_inventory = Inventory.objects.filter(event=event)
+  devices = event.devices.all()
+  event_inventory = event.inventories.all()
   inventories = {}
   inventories_free = {}
   for device in devices:
@@ -73,8 +73,26 @@ def view_device(request, event_slug, device_name):
   return render(request,'view_device.html', content)
 
 def home(request):
+  events = Event.objects.all()
+  managed_events = []
+  user = ''
+  if request.user.is_authenticated():
+    user = request.user
+    for event in events:
+      managers = event.managers.all()
+      manager = True
+      try:
+        event.managers.get(user = user)
+      except Manager.DoesNotExist:
+        manager = False
+
+      if manager:
+        managed_events.append(event)
+
   content = {
-    'events' : Event.objects.all()
+    'events' : events,
+    'managed_events' : managed_events,
+    'u' : user
   }
   return render(request,'events.html', content)
 
@@ -94,11 +112,11 @@ def hardware_location(request):
 
   return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
 
-def rent_device(request):
+def reserve_device(request):
   user = User.objects.get(username=request.GET['user'])
   event = Event.objects.get(name=request.GET['event'])
   device = Device.objects.get(name=request.GET['device'])
-  device_rentals = Rental.objects.filter(inventory__device=device, returned = False)
+  device_rentals = Rental.objects.filter(inventory__device=device, reservation = False, returned = False)
   free_inventory = Inventory.objects.filter(Q(event=event,device=device) & ~Q(rental=device_rentals)) 
   response = {}
   response['username'] = user.username
@@ -107,13 +125,33 @@ def rent_device(request):
     response['avatar'] = user.socialaccount_set.all()[0].get_avatar_url()
   
   if free_inventory.count() > 0:
-    new_rental = Rental(user = user, inventory = free_inventory[0])
+    new_rental = Rental(user = user, inventory = free_inventory[0], event = event)
     new_rental.save()
     rentals = Rental.objects.filter(inventory__event = event, inventory__device = device, returned = False)
     free = free_inventory.count()
     return render(request, 'partials/device_rentals.html',   {'rentals':rentals, 'free': free})
   else:
     return HttpResponseBadRequest("Sorry, there are no more " + device.name + " in stock!")
+
+def cancel_reservation(request):
+  rental = Rental.objects.get(pk = request.GET['rental_id'])
+  try:
+    rental.delete()
+  except Exception as e:
+    return HttpResponseBadRequest('An error occured: %s', e)
+  else:
+    return HttpResponse('Reservation Canceled')
+
+def rent_device(request):
+  rental = Rental.objects.get(pk = request.GET['rental_id'])
+  rental.reservation = False
+  try:
+    rental.save()
+  except Exception as e:
+    return HttpResponseBadRequest('An error occured: %s', e)
+  else:
+    return HttpResponse('Rental Created')
+      
 
 @login_required
 def user_profile(request):
@@ -146,17 +184,35 @@ def user_profile(request):
   else:
     raise PermissionDenied
 
+@login_required
 def user_orders(request):
   user = User.objects.get(pk = request.user.id)
   rentals = Rental.objects.filter(user = user)
 
   return render(request, 'user_orders.html', {'rentals': rentals})
 
-def cancel_reservation(request):
-  rental = Rental.objects.get(pk = request.GET['rental_id'])
+
+@login_required
+def event_manager(request, event_slug):
+  event = Event.objects.get(slug = event_slug)
+
+  managers = event.managers.all()
+  manager = True
   try:
-    rental.delete()
-  except Exception as e:
-    return HttpResponseBadRequest('An error occured: %s', e)
-  else:
-    return HttpResponse('Reservation Canceled')
+    event.managers.get(user = request.user)
+  except Manager.DoesNotExist:
+    manager = False
+
+  if manager:
+    reservations = Rental.objects.filter(event = event, reservation = True)
+    rentals = Rental.objects.filter(event = event, reservation = False, returned = False)
+
+    context = {
+      'reservations' : reservations,
+      'rentals' : rentals
+    }
+
+    return render(request, 'event_manager.html', context)
+  messages.info(request, "You are not a manager")
+  return render(request, '/')
+
