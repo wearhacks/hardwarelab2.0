@@ -15,14 +15,17 @@ $(document).ready(function(){
           },
           onApprove : function() {
             $.ajax({
-              url : "/api/rent/", // the endpoint
+              url : "/api/reserve/", // the endpoint
               type : "GET", // http method
-              data : { user : '{{user.username}}', device: '{{device.name}}', event: '{{event.name}}'},
+              data : { 
+                user : '{{user.username}}', 
+                device: '{{device.name}}', 
+                event: '{{event.name}}'
+              },
               success : function(data) {
                 alertify.alert("You successfully reserved a {{device.name}}");
                 $('#reservations')
                 .replaceWith(data); // log the returned json to the console
-                  
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -31,7 +34,7 @@ $(document).ready(function(){
           },
         }).modal('show');
       } else {
-        alertify.alert("Please go to the settings page and enter your phone number");
+        alertify.alert("Please go to the Settings page and enter your phone number");
       }
     });
 });

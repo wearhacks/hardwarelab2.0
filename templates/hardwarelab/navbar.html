@@ -28,7 +28,7 @@ Logged in As  {% load account %} {% user_display user %}
         <img style="margin-right: 10px;border-radius: 3px;" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />  {% user_display user %}
         <i class="dropdown icon"></i>
         <div class="menu">
-          <a class="item" href="#">Orders</a>
+          <a class="item" href="/hardwarelab/me/orders">Orders</a>
           <a class="item" href="/me">Settings</a>
           <a id="logout" class="item" href="#">Logout</a>
         </div>

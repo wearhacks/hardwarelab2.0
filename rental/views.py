@@ -96,13 +96,13 @@ def hardware_location(request):
 
 def rent_device(request):
   user = User.objects.get(username=request.GET['user'])
-
   event = Event.objects.get(name=request.GET['event'])
   device = Device.objects.get(name=request.GET['device'])
   device_rentals = Rental.objects.filter(inventory__device=device, returned = False)
   free_inventory = Inventory.objects.filter(Q(event=event,device=device) & ~Q(rental=device_rentals)) 
   response = {}
   response['username'] = user.username
+
   if user.socialaccount_set.count() > 0:
     response['avatar'] = user.socialaccount_set.all()[0].get_avatar_url()
   
@@ -145,3 +145,18 @@ def user_profile(request):
     return render(request, "user_profile.html", context)
   else:
     raise PermissionDenied
+
+def user_orders(request):
+  user = User.objects.get(pk = request.user.id)
+  rentals = Rental.objects.filter(user = user)
+
+  return render(request, 'user_orders.html', {'rentals': rentals})
+
+def cancel_reservation(request):
+  rental = Rental.objects.get(pk = request.GET['rental_id'])
+  try:
+    rental.delete()
+  except Exception as e:
+    return HttpResponseBadRequest('An error occured: %s', e)
+  else:
+    return HttpResponse('Reservation Canceled')

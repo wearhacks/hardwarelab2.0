@@ -28,9 +28,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=50)),
+                ('slug', models.SlugField(help_text=b'ie: Short name, required field for event page: http://wearhacks.com/events/<slug>', blank=True)),
                 ('start_date', models.DateTimeField(null=True)),
                 ('end_date', models.DateTimeField(null=True)),
                 ('hosted_by', models.CharField(max_length=100, null=True)),
+                ('devices', models.ManyToManyField(to='rental.Device')),
             ],
         ),
         migrations.CreateModel(
@@ -40,7 +42,6 @@ class Migration(migrations.Migration):
                 ('serial_id', models.CharField(max_length=50)),
                 ('rented', models.BooleanField(default=False)),
                 ('device', models.ForeignKey(to='rental.Device')),
-                ('event', models.ForeignKey(to='rental.Event', null=True)),
             ],
             options={
                 'verbose_name_plural': 'Inventory',
@@ -60,11 +61,13 @@ class Migration(migrations.Migration):
             name='Rental',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('reservation', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
                 ('updated_at', models.DateTimeField(auto_now=True)),
-                ('returned_at', models.DateTimeField(null=True)),
-                ('hack_finished', models.BooleanField(default=True)),
-                ('device', models.ForeignKey(to='rental.Device')),
+                ('hack_finished', models.BooleanField(default=False)),
+                ('returned', models.BooleanField(default=False)),
+                ('returned_at', models.DateTimeField(null=True, blank=True)),
+                ('inventory', models.ForeignKey(to='rental.Inventory')),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -77,18 +80,25 @@ class Migration(migrations.Migration):
                 ('improvements', models.CharField(max_length=500)),
                 ('other_comments', models.CharField(max_length=500)),
                 ('devices', models.ManyToManyField(to='rental.Device')),
-                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.CreateModel(
-            name='UserInfo',
+            name='UserProfile',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
-                ('first_name', models.CharField(max_length=50)),
-                ('last_name', models.CharField(max_length=50)),
-                ('phone_number', models.CharField(max_length=15, validators=[django.core.validators.RegexValidator(regex=b'^\\+?1?\\d{9,15}$', message=b"Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")])),
+                ('phone_number', models.CharField(blank=True, max_length=15, validators=[django.core.validators.RegexValidator(regex=b'^\\+?1?\\d{9,15}$', message=b"Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")])),
                 ('user', models.OneToOneField(to=settings.AUTH_USER_MODEL)),
             ],
+        ),
+        migrations.AddField(
+            model_name='review',
+            name='user',
+            field=models.ForeignKey(to='rental.UserProfile'),
+        ),
+        migrations.AddField(
+            model_name='event',
+            name='inventories',
+            field=models.ManyToManyField(to='rental.Inventory', blank=True),
         ),
         migrations.AddField(
             model_name='device',

@@ -38,6 +38,9 @@ class UserProfile(models.Model):
                               message = "Phone number must be entered in the format: '+999999999'. Up to 15 digits allowed.")
   phone_number = models.CharField(validators = [phone_regex], blank=True, max_length = 15) #validators should be a list
 
+  def __unicode__(self):
+    return u"%s" % self.user
+
 def create_profile(sender, **kwargs):
     user = kwargs["instance"]
     if kwargs["created"]:
@@ -58,7 +61,6 @@ class Device(models.Model):
   manufacturer = models.ForeignKey(Manufacturer, default = 0)
   description = models.CharField(max_length = 250)
   image = models.ImageField(upload_to = get_image_filename, blank = True, null = True)
-
 
   def __unicode__(self):
     return u"%s" % self.name
@@ -107,7 +109,6 @@ class Event(models.Model):
 
   def __unicode__(self):
     return u"%s" % self.name
-
 
 class Review(models.Model):
   user = models.ForeignKey(UserProfile)

@@ -1,0 +1,107 @@
+{% extends "layout.html" %}
+{% block content %}
+<script>
+$(document).ready(function(){
+    $(".cancel").on("click", function() {
+      $rental_id = $(this).siblings("#rental-id").attr("value");
+      console.log($rental_id);
+        $("#cancel-reservation-modal").modal({
+          closable  : true,
+          onDeny    : function(){
+            return true;
+          },
+          onApprove : function() {
+            $.ajax({
+              url : "/api/cancel-reservation/", // the endpoint
+              type : "GET", // http method
+              data : { 
+                rental_id: $rental_id
+              },
+              success : function(data) {
+                location.reload();
+              }, 
+              error: function(data) {
+                alertify.alert(data.responseText);
+              }
+            });
+          },
+        }).modal('show');
+    });
+});
+</script>
+<!-- {{ rentals }} -->
+<div id="main" class="ui segment">
+  <h2 class="ui header">Your reservations:</h2>
+  <div id="reservations" class="ui cards">
+    {% for rental in rentals %}
+      {% if rental.reservation %}
+        <div class="card">
+          <div class="image">
+            <img src="/media/{{ rental.inventory.device.image }}">
+          </div>
+          <div class="content">
+            <a class="header">{{rental.inventory.device.name}}</a>
+            <div class="meta">
+              <span class="inventory_id">Inventory ID: {{rental.inventory.id}}</span>
+            </div>
+            <div class="description">
+              <p>{{rental.inventory.device.description}}</p>
+            </div>
+          </div>
+          <div class="cancel">
+            <div class="ui bottom attached button">
+              <i class="fa fa-ban"></i> Cancel Reservation
+            </div>
+          </div>
+          <div hidden id="rental-id" value="{{rental.id}}"></div>
+        </div>
+      {% else %}
+        You dont have any reservations!
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <div id="reservations" class="ui divided items">
+    {% for rental in rentals %}
+      {% if not rental.reservation %}
+        <div class="item">
+          <div class="image">
+            <img src="/media/{{ rental.inventory.device.image }}">
+          </div>
+          <div class="content">
+            <a class="header">{{rental.inventory.device.name}}</a>
+            <div class="meta">
+              <span class="inventory_id">Inventory ID: {{rental.inventory.id}}</span>
+            </div>
+            <div class="description">
+              <p>{{rental.inventory.device.description}}</p>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+
+
+<div id="cancel-reservation-modal" class="ui modal small">
+  <div class="ui icon header">
+  <i class="archive icon"></i>
+    Cancel Reservation<br/>
+    <small>Do you want to cancel your resevation for {{rental.inventory.device.name}}?</small>
+  </div>
+
+  <div class="actions centered">
+    
+      <div class="ui cancel button">
+        <i class="remove icon"></i>
+        My bad!
+      </div>
+      <div class="ui teal approve button">
+        <i class="checkmark icon"></i>
+        Yes, please!
+      </div>  
+  </div>
+</div>
+
+{% endblock %}
