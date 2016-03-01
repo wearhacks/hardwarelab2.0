@@ -16,13 +16,13 @@ urlpatterns = [
     url(r'^hardwarelab/me/orders','rental.views.user_orders'),
 
     url(r'^api/reserve/$', 'rental.views.reserve_device'),
-    url(r'^api/rent/$', 'rental.views.rent_device'),
     url(r'^api/cancel-reservation/$', 'rental.views.cancel_reservation'),
+    url(r'^api/rent/$', 'rental.views.rent_device'),
+    url(r'^api/return/$', 'rental.views.return_device'),
 
     url(r'^grappelli/', include('grappelli.urls')), # grappelli URLS
     url(r'^admin/', include(admin.site.urls)),
     url(r'^admin/allinventory', 'rental.views.hardware_location'),
     url(r'^accounts/', include('allauth.urls')),
     
-
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

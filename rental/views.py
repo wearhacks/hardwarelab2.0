@@ -1,3 +1,5 @@
+import json
+from datetime import datetime
 from django.shortcuts import render
 from django.template.defaulttags import register
 from django.http import HttpResponse, JsonResponse, HttpResponseBadRequest, HttpResponseRedirect
@@ -12,7 +14,6 @@ from django.contrib.auth.decorators import login_required
 from django.forms.models import inlineformset_factory
 from django.core.exceptions import PermissionDenied
 from django.db.models import Q
-import json
 # Create your views here.
 
 @register.filter(name='lookup')
@@ -150,7 +151,21 @@ def rent_device(request):
   except Exception as e:
     return HttpResponseBadRequest('An error occured: %s', e)
   else:
-    return HttpResponse('Rental Created')
+    return HttpResponse('')
+
+def return_device(request):
+  rental = Rental.objects.get(pk = request.GET['rental_id'])
+  rental.returned = True
+  rental.hack_finished = False
+  if request.GET['hack_finished']:
+    rental.hack_finished = True
+  rental.returned_at = datetime.now()
+  try:
+    rental.save()
+  except Exception as e:
+    return HttpResponseBadRequest('An error occured: %s', e)
+  else:
+    return HttpResponse('')
       
 
 @login_required
