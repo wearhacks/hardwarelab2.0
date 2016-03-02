@@ -8,6 +8,7 @@ Django based hardware inventory management system
 * `pip` - instructions [here](https://pip.pypa.io/en/latest/installing.html)
 * `virtualenvwrapper` - instructions [here](https://virtualenvwrapper.readthedocs.org/en/latest/install.html)
 * `npm` - instructions [here](https://docs.npmjs.com/getting-started/installing-node)
+* `bower` - instructions [here](http://bower.io/#install-bower)
 
 ## Quick setup
 
@@ -16,6 +17,7 @@ Django based hardware inventory management system
 $ mkvirtualenv hardwarelab
 $ workon hardwarelab
 (hardwarelab) $ pip install -r requirements.txt
+(hardwarelab) $ bower install
 
 (hardwarelab) $ python manage.py makemigrations
 (hardwarelab) $ python manage.py migrate
