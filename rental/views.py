@@ -159,14 +159,16 @@ def rent_device(request):
 
 def return_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
+  invnetory = Inventory.objects.get(instance = rental.inventory)
   rental.returned = True
-  rental.inventory.rented = False
+  inventory.rented = False
   rental.hack_finished = False
   if request.GET['hack_finished'] == 'on':
     rental.hack_finished = True
   rental.returned_at = datetime.now()
   try:
     rental.save()
+    inventory.save()
   except Exception as e:
     return HttpResponseBadRequest('An error occured: %s', e)
   else:
@@ -229,6 +231,9 @@ def event_manager(request, event_slug):
   except Manager.DoesNotExist:
     manager = False
 
+
+  print 'reached!'
+
   if manager:
     reservations = Rental.objects.filter(event = event, reservation = True)
     rentals = Rental.objects.filter(event = event, reservation = False, returned = False)
@@ -238,8 +243,8 @@ def event_manager(request, event_slug):
       'rentals' : rentals,
       'free_inventories': free_inventory
     }
-
     return render(request, 'event_manager.html', context)
-  messages.info(request, "You are not a manager")
-  return render(request, '/')
+  else:
+    # messages.info(request, "You are not a manager")
+    return HttpResponseBadRequest('You no manager!')
 
