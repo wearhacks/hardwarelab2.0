@@ -33,16 +33,15 @@ user_logged_in.connect(phone_number_warning_message)
 def devices(request, event_slug):
   event = Event.objects.get(slug=event_slug)
   devices = event.devices.all()
-  event_inventory = event.inventories.all()
   inventories = {}
   inventories_free = {}
   for device in devices:
       #taking all the stock
-      free_inventory = Inventory.objects.filter(
-        Q(event=event,device=device,rental=None) 
-        | Q(event=event,device=device,rental__returned=True))
+      event_inventory = Inventory.objects.filter(event=event, device=device)
+      rentals = Rental.objects.filter(event = event, device = device, returned = False)
+      inventories_free[device.name] = event_inventory.count() - rentals.count()
       inventories[device.name] = event_inventory.filter(device=device)
-      inventories_free[device.name] = free_inventory.count()
+
   content = {
     'event' : event,
     'devices' : devices,
@@ -55,7 +54,7 @@ def view_device(request, event_slug, device_name):
   device = Device.objects.get(name=device_name)
   event = Event.objects.get(slug=event_slug)
   event_inventory = Inventory.objects.filter(event=event, device=device)
-  rentals = Rental.objects.filter(inventory = event_inventory, returned = False)
+  rentals = Rental.objects.filter(event = event, device = device, returned = False)
   
   free = event_inventory.count() - rentals.count()
 
@@ -117,19 +116,19 @@ def reserve_device(request):
   user = User.objects.get(username=request.GET['user'])
   event = Event.objects.get(name=request.GET['event'])
   device = Device.objects.get(name=request.GET['device'])
-  device_rentals = Rental.objects.filter(inventory__device=device, reservation = False, returned = False)
-  free_inventory = Inventory.objects.filter(Q(event=event,device=device) & ~Q(rental=device_rentals)) 
+  rentals = Rental.objects.filter(event = event, device = device, returned = False, reservation = False)
+  reservations = Rental.objects.filter(event = event, device = device, returned = False, reservation = True)
+  free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count() - reservations.count()
   response = {}
   response['username'] = user.username
 
   if user.socialaccount_set.count() > 0:
     response['avatar'] = user.socialaccount_set.all()[0].get_avatar_url()
   
-  if free_inventory.count() > 0:
-    new_rental = Rental(user = user, inventory = free_inventory[0], event = event)
+  if free_inventory > 0:
+    new_rental = Rental(user = user, event = event, device = device)
     new_rental.save()
-    rentals = Rental.objects.filter(inventory__event = event, inventory__device = device, returned = False)
-    free = free_inventory.count()
+    free = free_inventory
     return render(request, 'partials/device_rentals.html',   {'rentals':rentals, 'free': free})
   else:
     return HttpResponseBadRequest("Sorry, there are no more " + device.name + " in stock!")
@@ -145,9 +144,14 @@ def cancel_reservation(request):
 
 def rent_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
+  inventory = Inventory.objects.get(serial_id = request.GET['inventory_id'])
+  inventory.rented = True
   rental.reservation = False
+  rental.inventory = inventory
+  rental.device = inventory.device
   try:
     rental.save()
+    inventory.save()
   except Exception as e:
     return HttpResponseBadRequest('An error occured: %s', e)
   else:
@@ -156,8 +160,9 @@ def rent_device(request):
 def return_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
   rental.returned = True
+  rental.inventory.rented = False
   rental.hack_finished = False
-  if request.GET['hack_finished']:
+  if request.GET['hack_finished'] == 'on':
     rental.hack_finished = True
   rental.returned_at = datetime.now()
   try:
@@ -165,7 +170,7 @@ def return_device(request):
   except Exception as e:
     return HttpResponseBadRequest('An error occured: %s', e)
   else:
-    return HttpResponse('')
+    return HttpResponse('Returned!')
       
 
 @login_required
@@ -210,6 +215,12 @@ def user_orders(request):
 @login_required
 def event_manager(request, event_slug):
   event = Event.objects.get(slug = event_slug)
+  devices = event.devices.all()
+  event_inventory = event.inventories.all()
+  free_inventory = {}
+  inventories_free = {}
+  for device in devices:
+    free_inventory[device.name] = Inventory.objects.filter(event=event, device=device, rented = False)
 
   managers = event.managers.all()
   manager = True
@@ -224,7 +235,8 @@ def event_manager(request, event_slug):
 
     context = {
       'reservations' : reservations,
-      'rentals' : rentals
+      'rentals' : rentals,
+      'free_inventories': free_inventory
     }
 
     return render(request, 'event_manager.html', context)

@@ -7,13 +7,14 @@ urlpatterns = [
     # Examples:
     url(r'^$', 'rental.views.home', name='home'),
     
+    url(r'^me/','rental.views.user_profile'),
+    url(r'^hardwarelab/me/orders','rental.views.user_orders'),
+    
     url(r'^hardwarelab/inventory','rental.views.hardware_location'),
     url(r'^hardwarelab/(?P<event_slug>.*)/$', 'rental.views.devices', name='devices'),
     url(r'^hardwarelab/(?P<event_slug>.*)/manager', 'rental.views.event_manager'),
     url(r'^hardwarelab/(?P<event_slug>.*)/(?P<device_name>.*)','rental.views.view_device'),
     
-    url(r'^me/','rental.views.user_profile'),
-    url(r'^hardwarelab/me/orders','rental.views.user_orders'),
 
     url(r'^api/reserve/$', 'rental.views.reserve_device'),
     url(r'^api/cancel-reservation/$', 'rental.views.cancel_reservation'),

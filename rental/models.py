@@ -103,18 +103,22 @@ class Event(models.Model):
 
 class Rental(models.Model):
   user = models.ForeignKey(User)
-  inventory = models.ForeignKey(Inventory)
+  inventory = models.ForeignKey(Inventory, null=True, blank = True)
+  device = models.ForeignKey(Device)
   event = models.ForeignKey(Event)
   reservation = models.BooleanField(default = True) 
   created_at = models.DateTimeField(auto_now_add = True)
-    
+
   hack_finished = models.BooleanField(default = False)
   returned = models.BooleanField(default = False)
   
   returned_at = models.DateTimeField(null = True, blank=True)
 
   def __unicode__(self):
-    return u"%s %s" % (self.user, self.inventory)
+    if self.inventory:
+      return u"%s %s" % (self.user, self.inventory.serial_id)
+    if not self.inventory:
+      return u"%s %s" % (self.user, self.device)
 
 class Review(models.Model):
   user = models.ForeignKey(UserProfile)

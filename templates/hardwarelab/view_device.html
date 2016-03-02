@@ -26,6 +26,7 @@ $(document).ready(function(){
                 alertify.alert("You successfully reserved a {{device.name}}");
                 $('#reservations')
                 .replaceWith(data); // log the returned json to the console
+                location.reload()
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -54,7 +55,16 @@ $(document).ready(function(){
   </h1>
   <p>{{device.description}}</p>
   {% if user.is_authenticated %}
-    <a id="rent-device" class="ui button">Reserve Device</a>
+    {% if free > 0 %}
+      <a id="rent-device" class="ui button">Reserve Device</a>
+    {% else %}
+      <div class="ui compact message">
+        <div class="header">
+          Out of Stock
+        </div>
+        <p>Sorry! all {{device.name}}s have been either reserved or rented out. Please check back later.</p>
+      </div>
+    {% endif %}
   {% else %}
     <a href="/accounts/login"><div class="ui compact message">Login to reserve</div></a>
   {% endif %}

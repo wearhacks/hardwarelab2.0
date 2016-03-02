@@ -37,15 +37,15 @@ $(document).ready(function(){
       {% if rental.reservation %}
         <div class="card">
           <div class="image">
-            <img src="/media/{{ rental.inventory.device.image }}">
+            <img src="/media/{{ rental.device.image }}">
           </div>
           <div class="content">
-            <a class="header">{{rental.inventory.device.name}}</a>
+            <a class="header">{{rental.device.name}}</a>
             <div class="meta">
-              <span class="inventory_id">Inventory ID: {{rental.inventory.id}}</span>
+              <div>{{rental.event.name}}</div>
             </div>
             <div class="description">
-              <p>{{rental.inventory.device.description}}</p>
+              <p>{{rental.device.description}}</p>
             </div>
           </div>
           <div class="cancel">
@@ -55,23 +55,23 @@ $(document).ready(function(){
           </div>
           <div hidden id="rental-id" value="{{rental.id}}"></div>
         </div>
-      {% else %}
-        You dont have any reservations!
       {% endif %}
     {% endfor %}
   </div>
 
-  <div id="reservations" class="ui divided items">
+  <h2 class="ui header">Your rentals:</h2>
+  <div id="rentals" class="ui cards">
     {% for rental in rentals %}
       {% if not rental.reservation %}
-        <div class="item">
+        <div class="card">
           <div class="image">
             <img src="/media/{{ rental.inventory.device.image }}">
           </div>
           <div class="content">
             <a class="header">{{rental.inventory.device.name}}</a>
             <div class="meta">
-              <span class="inventory_id">Inventory ID: {{rental.inventory.id}}</span>
+              <div>Inventory ID: {{rental.inventory.id}}</div>
+              <div>{{rental.event.name}}</div>
             </div>
             <div class="description">
               <p>{{rental.inventory.device.description}}</p>

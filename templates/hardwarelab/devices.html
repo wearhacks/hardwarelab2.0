@@ -38,7 +38,7 @@
       <span class="ui label teal"><i class="archive icon"></i>{{ inventories_free|lookup:device.name }} in stock</span>
       <span class="right" style="float:right"> {{ inventories|lookup:device.name | length }} Total</span>
     </div>
-    <div class="ui botton attached primary button">Details</div>
+    <a href="/hardwarelab/{{event.slug}}/{{device.name}}"><div class="ui botton attached button">Details</div></a>
   </div>
   {% endfor %}
 

@@ -4,7 +4,12 @@
 $(document).ready(function(){
     $(".create-rental").on("click", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
-      console.log($rental_id);
+      $inventory_id = $(this).parentsUntil('#reservations').find('#inventory_id').val();
+      console.log($inventory_id);
+      if($inventory_id == ''){
+        console.log('empty');
+        alertify.alert("Please select an Inventory ID");
+      } else {
         $("#create-rental-modal").modal({
           closable  : true,
           onDeny    : function(){
@@ -15,11 +20,12 @@ $(document).ready(function(){
               url : "/api/rent/", // the endpoint
               type : "GET", // http method
               data : { 
-                rental_id: $rental_id
+                rental_id: $rental_id,
+                inventory_id: $inventory_id
               },
               success : function(data) {
-                // location.reload();
-                $("#manager-container").load(document.URL + ' #manager-container')
+                location.reload();
+                // $("#manager-container").load(document.URL + ' #manager-container')
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -27,12 +33,17 @@ $(document).ready(function(){
             });
           },
         }).modal('show');
+      }
     });
     $(".return").on("click", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
       $hack_finished = $(this).siblings('div.extra.content').children().children('.hack_finished:checked').val();
       console.log($rental_id);
+      console.log("hack_finished:");
       console.log($hack_finished);
+      if(typeof $hack_finished === 'undefined'){
+          $hack_finished = 'no';
+      };
         $("#return-modal").modal({
           closable  : true,
           onDeny    : function(){
@@ -47,8 +58,8 @@ $(document).ready(function(){
                 hack_finished : $hack_finished
               },
               success : function(data) {
-                // location.reload();
-                $("#manager-container").load(document.URL + ' #manager-container')
+                location.reload();
+                // $("#manager-container").load(document.URL + ' #manager-container')
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -59,7 +70,8 @@ $(document).ready(function(){
     });
 });
 </script> 
-<!-- {{ rentals }} -->
+
+<!-- {{free_inventories}} -->
 <div id="manager-container" class="ui container">
   <div class="ui segment">
     <h2 class="ui header">Current Reservations:</h2>
@@ -68,26 +80,37 @@ $(document).ready(function(){
     {% endif %}
     <div id="reservations" class="ui cards">
       {% for reservation in reservations %}
-          <div class="ui blue card">
-            <div class="content">
-              <a class="header">{{reservation.user.first_name}} {{reservation.user.last_name}}</a>
-              <div class="meta">
-                <div class="ui label">{{reservation.inventory.device.name}}</div>
-                <div class="ui label">Inventory ID: {{reservation.inventory.id}}</div>
-              </div>
-              <div class="description">
-              </div>
+        <div class="ui blue card">
+          <div class="content">
+            <a class="header">{{reservation.user.first_name}} {{reservation.user.last_name}}</a>
+            <div class="sub header">{{reservation.device.name}}</div>
+            <div class="meta">
             </div>
-            <div class="create-rental">
-              <div class="ui bottom attached button">
-                <i class="fa fa-plus-square"></i> 
-                Create Rental
-              </div>
+            <div class="description">
+              Inventory ID:
+              <select class="ui search dropdown" id="inventory_id">
+                <option value="" selected="selected"></option>
+                {% for key, values in free_inventories.items %}
+                  {% if key == reservation.device.name %}
+                    {% for i in values %}
+                      <option value="{{i.serial_id}}"> {{i.serial_id}}</option>
+                    {%endfor%}
+                  {%endif%}
+                {% endfor %}
+              </select>
             </div>
-            <div hidden id="rental-id" value="{{reservation.id}}"></div>
           </div>
+        <div class="create-rental">
+          <div class="ui bottom attached button">
+            <i class="fa fa-plus-square"></i> 
+            Create Rental
+          </div>
+        </div>
+        <div hidden id="rental-id" value="{{reservation.id}}"></div>
+        </div>
       {% endfor %}
     </div>
+  </div>
   </div>
 
   <div class="ui segment">
