@@ -123,8 +123,6 @@ def reserve_device(request):
   #--------number of devices that have been reserved/rented
   rentals = Rental.objects.filter(event = event, device = device, returned = False)
 
-  # reservations = Rental.objects.filter(event = event, device = device, returned = False, reservation = True)
-  # free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count() - reservations.count()
   free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count()
   
   response = {}
@@ -136,6 +134,7 @@ def reserve_device(request):
   if free_inventory > 0:
     new_rental = Rental(user = user, event = event, device = device)
     new_rental.save()
+    #-----------intentionally left here
     # r = Rental.objects.filter(event = event, device = device, returned = False) #grab the current rentals again after saving the current reservation
     # free = free_inventory - 1  #decrease the free count since a new rental is made
     # return render(request, 'partials/device_rentals.html',   {'rentals': r, 'free': free })
@@ -161,6 +160,7 @@ def rent_device(request):
   rental.save()
   inventory.save()
   
+  #-----------intentionally left here
   # reservations = Rental.objects.filter(event = rental.event, reservation = True)
   # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
 
@@ -190,6 +190,7 @@ def return_device(request):
   rental.save()
   inventory.save()
 
+  #-----------intentionally left here
   # reservations = Rental.objects.filter(event = rental.event, reservation = True)
   # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
 
