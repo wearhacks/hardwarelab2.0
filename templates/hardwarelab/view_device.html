@@ -6,7 +6,7 @@
 </style>
 <script>
 $(document).ready(function(){
-    $("#rent-device").click(function() {
+    $(document).on("click", "#rent-device", function() {
       if ('{{user_profile.phone_number}}' != '') {
         $("#rent-device-modal").modal({
           closable  : true,
@@ -24,9 +24,11 @@ $(document).ready(function(){
               },
               success : function(data) {
                 alertify.alert("You successfully reserved a {{device.name}}");
-                $('#reservations')
-                .replaceWith(data); // log the returned json to the console
-                location.reload()
+                // $('#reservations').replaceWith(data); 
+                $('#reserve-button').load(document.URL + ' #reserve-button')
+                $('#reservations').load(document.URL + ' #reservations')
+                console.log(data)
+                // location.reload();
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -54,20 +56,22 @@ $(document).ready(function(){
     <div class="sub header">{{device.manufacturer}}</div>
   </h1>
   <p>{{device.description}}</p>
-  {% if user.is_authenticated %}
-    {% if free > 0 %}
-      <a id="rent-device" class="ui button">Reserve Device</a>
-    {% else %}
-      <div class="ui compact message">
-        <div class="header">
-          Out of Stock
+  <div id="reserve-button">
+    {% if user.is_authenticated %}
+      {% if free > 0 %}
+        <a id="rent-device" class="ui button">Reserve Device</a>
+      {% else %}
+        <div class="ui compact message">
+          <div class="header">
+            Out of Stock
+          </div>
+          <p>Sorry! all {{device.name}}s have been either reserved or rented out. Please check back later.</p>
         </div>
-        <p>Sorry! all {{device.name}}s have been either reserved or rented out. Please check back later.</p>
-      </div>
+      {% endif %}
+    {% else %}
+      <a href="/accounts/login"><div class="ui compact message">Login to reserve</div></a>
     {% endif %}
-  {% else %}
-    <a href="/accounts/login"><div class="ui compact message">Login to reserve</div></a>
-  {% endif %}
+  </div>
 
 </div>
 

@@ -2,9 +2,9 @@
 {% block content %}
 <script>
 $(document).ready(function(){
-    $(".create-rental").on("click", function() {
+    $(document).on("click", ".create-rental", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
-      $inventory_id = $(this).parentsUntil('#reservations').find('#inventory_id').val();
+      $inventory_id = $(this).parentsUntil('#reservations').find('select').val();
       console.log($inventory_id);
       if($inventory_id == ''){
         console.log('empty');
@@ -24,8 +24,8 @@ $(document).ready(function(){
                 inventory_id: $inventory_id
               },
               success : function(data) {
-                location.reload();
-                // $("#manager-container").load(document.URL + ' #manager-container')
+                $("#manager-container").load(document.URL + ' #manager-container');
+                // $("#manager-container").replaceWith(data);
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -35,7 +35,7 @@ $(document).ready(function(){
         }).modal('show');
       }
     });
-    $(".return").on("click", function() {
+    $(document).on("click", ".return", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
       $hack_finished = $(this).siblings('div.extra.content').children().children('.hack_finished:checked').val();
       console.log($rental_id);
@@ -58,8 +58,8 @@ $(document).ready(function(){
                 hack_finished : $hack_finished
               },
               success : function(data) {
-                location.reload();
-                // $("#manager-container").load(document.URL + ' #manager-container')
+                // $("#manager-container").replaceWith(data);
+                $("#manager-container").load(document.URL + ' #manager-container');
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -71,8 +71,9 @@ $(document).ready(function(){
 });
 </script> 
 
-<!-- {{free_inventories}} -->
+<!-- {{event}} -->
 <div id="manager-container" class="ui container">
+  <!-- {% include "partials/manager_partial.html" %} -->
   <div class="ui segment">
     <h2 class="ui header">Current Reservations:</h2>
     {% if reservations|length == 0 %}
@@ -82,18 +83,24 @@ $(document).ready(function(){
       {% for reservation in reservations %}
         <div class="ui blue card">
           <div class="content">
-            <a class="header">{{reservation.user.first_name}} {{reservation.user.last_name}}</a>
+            <a class="header"> 
+              {% if reservation.user.first_name %} 
+                {{reservation.user.first_name}} {{reservation.user.last_name}} 
+              {% else %} 
+                {{reservation.user.username}} 
+              {% endif %}</a>
             <div class="sub header">{{reservation.device.name}}</div>
             <div class="meta">
             </div>
             <div class="description">
               Inventory ID:
-              <select class="ui search dropdown" id="inventory_id">
+              <select class="ui search dropdown" class="inventory_id">
                 <option value="" selected="selected"></option>
                 {% for key, values in free_inventories.items %}
                   {% if key == reservation.device.name %}
                     {% for i in values %}
-                      <option value="{{i.serial_id}}"> {{i.serial_id}}</option>
+                      HYe
+                      <option value="{{i.id}}"> {{i.serial_id}}</option>
                     {%endfor%}
                   {%endif%}
                 {% endfor %}
@@ -111,7 +118,6 @@ $(document).ready(function(){
       {% endfor %}
     </div>
   </div>
-  </div>
 
   <div class="ui segment">
     <h2 class="ui header">Current Rentals:</h2>
@@ -127,7 +133,7 @@ $(document).ready(function(){
               </div>
               <div class="description">
                 <div class="">{{rental.inventory.device.name}}</div>
-                <div class="">Inventory ID: {{rental.inventory.id}}</div>
+                <div class="">Inventory ID: {{rental.inventory.serial_id}}</div>
               </div>
             </div>
             <div class="extra content">

@@ -113,12 +113,20 @@ def hardware_location(request):
   return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
 
 def reserve_device(request):
+  #--------variables from the request
   user = User.objects.get(username=request.GET['user'])
   event = Event.objects.get(name=request.GET['event'])
   device = Device.objects.get(name=request.GET['device'])
-  rentals = Rental.objects.filter(event = event, device = device, returned = False, reservation = False)
-  reservations = Rental.objects.filter(event = event, device = device, returned = False, reservation = True)
-  free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count() - reservations.count()
+
+  print user, event, device
+
+  #--------number of devices that have been reserved/rented
+  rentals = Rental.objects.filter(event = event, device = device, returned = False)
+
+  # reservations = Rental.objects.filter(event = event, device = device, returned = False, reservation = True)
+  # free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count() - reservations.count()
+  free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count()
+  
   response = {}
   response['username'] = user.username
 
@@ -128,51 +136,74 @@ def reserve_device(request):
   if free_inventory > 0:
     new_rental = Rental(user = user, event = event, device = device)
     new_rental.save()
-    free = free_inventory
-    return render(request, 'partials/device_rentals.html',   {'rentals':rentals, 'free': free})
+    # r = Rental.objects.filter(event = event, device = device, returned = False) #grab the current rentals again after saving the current reservation
+    # free = free_inventory - 1  #decrease the free count since a new rental is made
+    # return render(request, 'partials/device_rentals.html',   {'rentals': r, 'free': free })
+    return HttpResponse('Reserved')
   else:
     return HttpResponseBadRequest("Sorry, there are no more " + device.name + " in stock!")
 
 def cancel_reservation(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
-  try:
-    rental.delete()
-  except Exception as e:
-    return HttpResponseBadRequest('An error occured: %s', e)
-  else:
-    return HttpResponse('Reservation Canceled')
+  rental.delete()
+  
+  return HttpResponse('Reservation Canceled')
 
 def rent_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
-  inventory = Inventory.objects.get(serial_id = request.GET['inventory_id'])
+  inventory = Inventory.objects.get(pk = request.GET['inventory_id'])
+  
   inventory.rented = True
   rental.reservation = False
   rental.inventory = inventory
   rental.device = inventory.device
-  try:
-    rental.save()
-    inventory.save()
-  except Exception as e:
-    return HttpResponseBadRequest('An error occured: %s', e)
-  else:
-    return HttpResponse('')
+  
+  rental.save()
+  inventory.save()
+  
+  # reservations = Rental.objects.filter(event = rental.event, reservation = True)
+  # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
+
+  # free_inventory = {}
+  # for device in rental.event.devices.all():
+  #   free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
+
+  # context = {
+  #   'reservations' : reservations,
+  #   'rentals' : rentals,
+  #   'free_inventories': free_inventory,
+  # }
+  # return render(request, 'partials/manager_partial.html', context)
+  return HttpResponse('Rented!')
 
 def return_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
-  invnetory = Inventory.objects.get(instance = rental.inventory)
+  inventory = Inventory.objects.get(pk = rental.inventory.id)
+  
   rental.returned = True
   inventory.rented = False
   rental.hack_finished = False
   if request.GET['hack_finished'] == 'on':
     rental.hack_finished = True
   rental.returned_at = datetime.now()
-  try:
-    rental.save()
-    inventory.save()
-  except Exception as e:
-    return HttpResponseBadRequest('An error occured: %s', e)
-  else:
-    return HttpResponse('Returned!')
+  
+  rental.save()
+  inventory.save()
+
+  # reservations = Rental.objects.filter(event = rental.event, reservation = True)
+  # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
+
+  # free_inventory = {}
+  # for device in rental.event.devices.all():
+  #   free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
+
+  # context = {
+  #   'reservations' : reservations,
+  #   'rentals' : rentals,
+  #   'free_inventories': free_inventory,
+  # }
+  # return render(request, 'partials/manager_partial.html', context)
+  return HttpResponse('Returned!')
       
 
 @login_required
@@ -217,12 +248,6 @@ def user_orders(request):
 @login_required
 def event_manager(request, event_slug):
   event = Event.objects.get(slug = event_slug)
-  devices = event.devices.all()
-  event_inventory = event.inventories.all()
-  free_inventory = {}
-  inventories_free = {}
-  for device in devices:
-    free_inventory[device.name] = Inventory.objects.filter(event=event, device=device, rented = False)
 
   managers = event.managers.all()
   manager = True
@@ -231,10 +256,13 @@ def event_manager(request, event_slug):
   except Manager.DoesNotExist:
     manager = False
 
-
-  print 'reached!'
-
   if manager:
+    devices = event.devices.all()
+    event_inventory = event.inventories.all()
+    free_inventory = {}
+    for device in devices:
+      free_inventory[device.name] = Inventory.objects.filter(event=event, device=device, rented = False)
+
     reservations = Rental.objects.filter(event = event, reservation = True)
     rentals = Rental.objects.filter(event = event, reservation = False, returned = False)
 

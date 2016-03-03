@@ -31,7 +31,7 @@ class Migration(migrations.Migration):
                 ('slug', models.SlugField(help_text=b'ie: Short name, required field for event page: http://wearhacks.com/events/<slug>', blank=True)),
                 ('start_date', models.DateTimeField(null=True)),
                 ('end_date', models.DateTimeField(null=True)),
-                ('hosted_by', models.CharField(max_length=100, null=True)),
+                ('host', models.CharField(max_length=100, null=True)),
                 ('devices', models.ManyToManyField(to='rental.Device')),
             ],
         ),
@@ -46,6 +46,13 @@ class Migration(migrations.Migration):
             options={
                 'verbose_name_plural': 'Inventory',
             },
+        ),
+        migrations.CreateModel(
+            name='Manager',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+            ],
         ),
         migrations.CreateModel(
             name='Manufacturer',
@@ -63,11 +70,12 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('reservation', models.BooleanField(default=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
-                ('updated_at', models.DateTimeField(auto_now=True)),
                 ('hack_finished', models.BooleanField(default=False)),
                 ('returned', models.BooleanField(default=False)),
                 ('returned_at', models.DateTimeField(null=True, blank=True)),
-                ('inventory', models.ForeignKey(to='rental.Inventory')),
+                ('device', models.ForeignKey(to='rental.Device')),
+                ('event', models.ForeignKey(to='rental.Event')),
+                ('inventory', models.ForeignKey(blank=True, to='rental.Inventory', null=True)),
                 ('user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),
@@ -99,6 +107,11 @@ class Migration(migrations.Migration):
             model_name='event',
             name='inventories',
             field=models.ManyToManyField(to='rental.Inventory', blank=True),
+        ),
+        migrations.AddField(
+            model_name='event',
+            name='managers',
+            field=models.ManyToManyField(to='rental.Manager'),
         ),
         migrations.AddField(
             model_name='device',
