@@ -1,3 +1,4 @@
+<div id="manager-container">
 <div class="ui segment">
     <h2 class="ui header">Current Reservations:</h2>
     {% if reservations|length == 0 %}
@@ -19,12 +20,10 @@
             <div class="description">
               Inventory ID:
               <select class="ui search dropdown" id="inventory_id">
-                <option value="" selected="selected"></option>
                 {% for key, values in free_inventories.items %}
                   {% if key == reservation.device.name %}
-                    {% for i in values %}
-                      HYe
-                      <option value="{{i.id}}"> {{i.serial_id}}</option>
+                    {% for inventory in values %}
+                      <option value="{{inventory.id}}"> {{inventory.serial_id}}</option>
                     {%endfor%}
                   {%endif%}
                 {% endfor %}
@@ -76,4 +75,5 @@
           </div>
       {% endfor %}
     </div>
+  </div>
   </div>

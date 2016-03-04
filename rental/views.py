@@ -118,27 +118,23 @@ def reserve_device(request):
   event = Event.objects.get(name=request.GET['event'])
   device = Device.objects.get(name=request.GET['device'])
 
-  print user, event, device
-
   #--------number of devices that have been reserved/rented
   rentals = Rental.objects.filter(event = event, device = device, returned = False)
 
   free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count()
-  
-  response = {}
-  response['username'] = user.username
 
-  if user.socialaccount_set.count() > 0:
-    response['avatar'] = user.socialaccount_set.all()[0].get_avatar_url()
   
   if free_inventory > 0:
     new_rental = Rental(user = user, event = event, device = device)
     new_rental.save()
-    #-----------intentionally left here
-    # r = Rental.objects.filter(event = event, device = device, returned = False) #grab the current rentals again after saving the current reservation
-    # free = free_inventory - 1  #decrease the free count since a new rental is made
-    # return render(request, 'partials/device_rentals.html',   {'rentals': r, 'free': free })
-    return HttpResponse('Reserved')
+    r = Rental.objects.filter(event = event, device = device, returned = False) #grab the current rentals again after saving the current reservation
+    free = free_inventory - 1  #decrease the free count since a new rental is made
+
+    return JsonResponse(
+      {'rental_render': render(request, 'partials/device_rentals.html',{'rentals': r, 'free': free }).content,
+       'free_inventory' : free
+      })
+
   else:
     return HttpResponseBadRequest("Sorry, there are no more " + device.name + " in stock!")
 
@@ -160,21 +156,20 @@ def rent_device(request):
   rental.save()
   inventory.save()
   
-  #-----------intentionally left here
-  # reservations = Rental.objects.filter(event = rental.event, reservation = True)
-  # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
 
-  # free_inventory = {}
-  # for device in rental.event.devices.all():
-  #   free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
+  reservations = Rental.objects.filter(event = rental.event, reservation = True)
+  rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
 
-  # context = {
-  #   'reservations' : reservations,
-  #   'rentals' : rentals,
-  #   'free_inventories': free_inventory,
-  # }
-  # return render(request, 'partials/manager_partial.html', context)
-  return HttpResponse('Rented!')
+  free_inventory = {}
+  for device in rental.event.devices.all():
+   free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
+
+  context = {
+   'reservations' : reservations,
+   'rentals' : rentals,
+   'free_inventories': free_inventory,
+  }
+  return render(request, 'partials/manager_partial.html', context)
 
 def return_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
@@ -241,7 +236,7 @@ def user_profile(request):
 @login_required
 def user_orders(request):
   user = User.objects.get(pk = request.user.id)
-  rentals = Rental.objects.filter(user = user)
+  rentals = Rental.objects.filter(user = user, returned = False)
 
   return render(request, 'user_orders.html', {'rentals': rentals})
 

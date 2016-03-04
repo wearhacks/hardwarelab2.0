@@ -58,8 +58,7 @@ $(document).ready(function(){
                 hack_finished : $hack_finished
               },
               success : function(data) {
-                // $("#manager-container").replaceWith(data);
-                $("#manager-container").load(document.URL + ' #manager-container');
+                $("#manager-container").replaceWith(data);
               }, 
               error: function(data) {
                 alertify.alert(data.responseText);
@@ -72,88 +71,7 @@ $(document).ready(function(){
 </script> 
 
 <!-- {{event}} -->
-<div id="manager-container" class="ui container">
-  <!-- {% include "partials/manager_partial.html" %} -->
-  <div class="ui segment">
-    <h2 class="ui header">Current Reservations:</h2>
-    {% if reservations|length == 0 %}
-      <p>No reservations</p>
-    {% endif %}
-    <div id="reservations" class="ui cards">
-      {% for reservation in reservations %}
-        <div class="ui blue card">
-          <div class="content">
-            <a class="header"> 
-              {% if reservation.user.first_name %} 
-                {{reservation.user.first_name}} {{reservation.user.last_name}} 
-              {% else %} 
-                {{reservation.user.username}} 
-              {% endif %}</a>
-            <div class="sub header">{{reservation.device.name}}</div>
-            <div class="meta">
-            </div>
-            <div class="description">
-              Inventory ID:
-              <select class="ui search dropdown" class="inventory_id">
-                <option value="" selected="selected"></option>
-                {% for key, values in free_inventories.items %}
-                  {% if key == reservation.device.name %}
-                    {% for i in values %}
-                      HYe
-                      <option value="{{i.id}}"> {{i.serial_id}}</option>
-                    {%endfor%}
-                  {%endif%}
-                {% endfor %}
-              </select>
-            </div>
-          </div>
-        <div class="create-rental">
-          <div class="ui bottom attached button">
-            <i class="fa fa-plus-square"></i> 
-            Create Rental
-          </div>
-        </div>
-        <div hidden id="rental-id" value="{{reservation.id}}"></div>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="ui segment">
-    <h2 class="ui header">Current Rentals:</h2>
-    {% if rentals|length == 0 %}
-      <p>No rentals</p>
-    {% endif %}
-    <div id="rentals" class="ui cards">
-      {% for rental in rentals %}
-          <div class="ui blue card">
-            <div class="content">
-              <a class="header">{{rental.user.first_name}} {{rental.user.last_name}}</a>
-              <div class="meta">
-              </div>
-              <div class="description">
-                <div class="">{{rental.inventory.device.name}}</div>
-                <div class="">Inventory ID: {{rental.inventory.serial_id}}</div>
-              </div>
-            </div>
-            <div class="extra content">
-              <div class="ui slider checkbox">
-                <input class="hack_finished" type="checkbox">
-                <label>Hack finished</label>
-              </div>
-            </div>
-            <div class="return">
-              <div class="ui bottom attached button">
-                <i class="fa fa-undo"></i> 
-                Return
-              </div>
-            </div>
-            <div hidden id="rental-id" value="{{rental.id}}"></div>
-          </div>
-      {% endfor %}
-    </div>
-  </div>
-</div>
+{% include "partials/manager_partial.html" %}
 
 <div id="create-rental-modal" class="ui modal small">
   <div class="ui icon header">
