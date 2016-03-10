@@ -186,20 +186,19 @@ def return_device(request):
   inventory.save()
 
   #-----------intentionally left here
-  # reservations = Rental.objects.filter(event = rental.event, reservation = True)
-  # rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
-
-  # free_inventory = {}
-  # for device in rental.event.devices.all():
-  #   free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
-
-  # context = {
-  #   'reservations' : reservations,
-  #   'rentals' : rentals,
-  #   'free_inventories': free_inventory,
-  # }
-  # return render(request, 'partials/manager_partial.html', context)
-  return HttpResponse('Returned!')
+  reservations = Rental.objects.filter(event = rental.event, reservation = True)
+  rentals = Rental.objects.filter(event = rental.event, reservation = False, returned = False)
+  free_inventory = {}
+  for device in rental.event.devices.all():
+    free_inventory[device.name] = Inventory.objects.filter(event=rental.event, device=device, rented = False)
+  
+  context = {
+     'reservations' : reservations,
+     'rentals' : rentals,
+     'free_inventories': free_inventory,
+   }
+  return render(request, 'partials/manager_partial.html', context)
+  #return HttpResponse('Returned!')
       
 
 @login_required
