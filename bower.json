@@ -16,6 +16,7 @@
   "dependencies": {
     "semantic-ui": "~2.1.8",
     "jquery": "~2.2.0",
-    "alertifyjs": "~1.0.9"
+    "alertifyjs": "~1.0.9",
+    "js-cookie": "^2.1.0"
   }
 }

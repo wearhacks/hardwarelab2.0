@@ -112,6 +112,7 @@ def hardware_location(request):
 
   return render(request,'hardware_location.html', {'inventories': inventories, 'free_inventories': free_inventories})
 
+@login_required
 def reserve_device(request):
   #--------variables from the request
   user = User.objects.get(username=request.GET['user'])
@@ -144,6 +145,7 @@ def cancel_reservation(request):
   
   return HttpResponse('Reservation Canceled')
 
+@login_required
 def rent_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
   inventory = Inventory.objects.get(pk = request.GET['inventory_id'])
@@ -171,6 +173,7 @@ def rent_device(request):
   }
   return render(request, 'partials/manager_partial.html', context)
 
+@login_required
 def return_device(request):
   rental = Rental.objects.get(pk = request.GET['rental_id'])
   inventory = Inventory.objects.get(pk = rental.inventory.id)
