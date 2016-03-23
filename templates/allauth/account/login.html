@@ -18,11 +18,8 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
 <div class="socialaccount_ballot">
 
-  <div class="ui github button">
-    <!-- <i class="github icon"</i>   -->
-    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-  </div>
-
+  
+  {% include "socialaccount/snippets/provider_list.html" with process="login" %}
   <div class="login-or">{% trans 'or' %}</div>
 
 </div>
