@@ -1,0 +1,2037 @@
+Starting hardwarelab as hardwarelab
+[2016-03-22 23:54:32 +0000] [793] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7ff1f0a35e60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7ff1f0a35b90>
+  pre_fork: <function pre_fork at 0x7ff1f0a35cf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7ff1f0a35a28>
+  pre_exec: <function pre_exec at 0x7ff1f0a3d488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7ff1f0a3d050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7ff1f0a3db18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7ff1f0a3d5f0>
+  post_request: <function post_request at 0x7ff1f0a3d6e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7ff1f0a3d1b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7ff1f0a3d848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7ff1f0a358c0>
+  worker_abort: <function worker_abort at 0x7ff1f0a3d320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7ff1f0a3d9b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-22 23:54:32 +0000] [793] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 23:54:32 +0000] [793] [DEBUG] Arbiter booted
+[2016-03-22 23:54:32 +0000] [793] [INFO] Listening at: http://0.0.0.0:8000 (793)
+[2016-03-22 23:54:32 +0000] [793] [INFO] Using worker: sync
+[2016-03-22 23:54:32 +0000] [802] [INFO] Booting worker with pid: 802
+[2016-03-22 23:54:32 +0000] [805] [INFO] Booting worker with pid: 805
+[2016-03-22 23:54:32 +0000] [806] [INFO] Booting worker with pid: 806
+[2016-03-22 23:54:32 +0000] [793] [DEBUG] 3 workers
+[2016-03-22 23:54:40 +0000] [793] [INFO] Handling signal: term
+[2016-03-23 03:54:40 +0000] [802] [INFO] Worker exiting (pid: 802)
+[2016-03-23 03:54:40 +0000] [805] [INFO] Worker exiting (pid: 805)
+[2016-03-23 03:54:40 +0000] [806] [INFO] Worker exiting (pid: 806)
+[2016-03-22 23:54:40 +0000] [793] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-22 23:54:41 +0000] [813] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f88aa2ebe60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f88aa2ebb90>
+  pre_fork: <function pre_fork at 0x7f88aa2ebcf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f88aa2eba28>
+  pre_exec: <function pre_exec at 0x7f88aa2f3488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f88aa2f3050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f88aa2f3b18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f88aa2f35f0>
+  post_request: <function post_request at 0x7f88aa2f36e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f88aa2f31b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f88aa2f3848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f88aa2eb8c0>
+  worker_abort: <function worker_abort at 0x7f88aa2f3320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f88aa2f39b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-22 23:54:41 +0000] [813] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 23:54:41 +0000] [813] [DEBUG] Arbiter booted
+[2016-03-22 23:54:41 +0000] [813] [INFO] Listening at: http://0.0.0.0:8000 (813)
+[2016-03-22 23:54:41 +0000] [813] [INFO] Using worker: sync
+[2016-03-22 23:54:41 +0000] [822] [INFO] Booting worker with pid: 822
+[2016-03-22 23:54:41 +0000] [825] [INFO] Booting worker with pid: 825
+[2016-03-22 23:54:41 +0000] [826] [INFO] Booting worker with pid: 826
+[2016-03-22 23:54:41 +0000] [813] [DEBUG] 3 workers
+[2016-03-23 03:54:47 +0000] [826] [DEBUG] GET /accounts/login/
+[2016-03-23 03:54:49 +0000] [826] [DEBUG] GET /accounts/github/login/
+[2016-03-23 03:54:56 +0000] [826] [DEBUG] GET /accounts/login/
+[2016-03-23 03:55:03 +0000] [825] [DEBUG] POST /accounts/login/
+[2016-03-23 03:55:09 +0000] [825] [DEBUG] POST /accounts/login/
+[2016-03-23 03:55:15 +0000] [822] [DEBUG] POST /accounts/login/
+[2016-03-23 03:55:16 +0000] [822] [DEBUG] GET /
+[2016-03-23 03:55:22 +0000] [822] [DEBUG] GET /admin
+[2016-03-23 03:55:22 +0000] [822] [DEBUG] GET /admin
+[2016-03-23 03:55:22 +0000] [822] [DEBUG] GET /admin/
+[2016-03-23 03:55:26 +0000] [825] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 03:55:26 +0000] [825] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 03:55:27 +0000] [826] [DEBUG] GET /admin/socialaccount/socialapp/1/
+[2016-03-23 03:55:28 +0000] [826] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 03:56:02 +0000] [826] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 03:56:04 +0000] [826] [DEBUG] GET /admin/
+[2016-03-23 03:56:07 +0000] [826] [DEBUG] GET /
+[2016-03-22 23:57:11 +0000] [813] [INFO] Handling signal: term
+[2016-03-23 03:57:11 +0000] [826] [INFO] Worker exiting (pid: 826)
+[2016-03-23 03:57:11 +0000] [825] [INFO] Worker exiting (pid: 825)
+[2016-03-23 03:57:11 +0000] [822] [INFO] Worker exiting (pid: 822)
+[2016-03-22 23:57:11 +0000] [813] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-22 23:57:12 +0000] [855] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7fbfef1c6e60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7fbfef1c6b90>
+  pre_fork: <function pre_fork at 0x7fbfef1c6cf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7fbfef1c6a28>
+  pre_exec: <function pre_exec at 0x7fbfef1ce488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7fbfef1ce050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7fbfef1ceb18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7fbfef1ce5f0>
+  post_request: <function post_request at 0x7fbfef1ce6e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7fbfef1ce1b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7fbfef1ce848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7fbfef1c68c0>
+  worker_abort: <function worker_abort at 0x7fbfef1ce320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7fbfef1ce9b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-22 23:57:12 +0000] [855] [INFO] Starting gunicorn 19.4.5
+[2016-03-22 23:57:12 +0000] [855] [DEBUG] Arbiter booted
+[2016-03-22 23:57:12 +0000] [855] [INFO] Listening at: http://0.0.0.0:8000 (855)
+[2016-03-22 23:57:12 +0000] [855] [INFO] Using worker: sync
+[2016-03-22 23:57:12 +0000] [864] [INFO] Booting worker with pid: 864
+[2016-03-22 23:57:12 +0000] [865] [INFO] Booting worker with pid: 865
+[2016-03-22 23:57:12 +0000] [866] [INFO] Booting worker with pid: 866
+[2016-03-22 23:57:12 +0000] [855] [DEBUG] 3 workers
+[2016-03-23 03:57:38 +0000] [865] [DEBUG] GET /
+[2016-03-23 03:57:40 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 03:57:40 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 03:58:47 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 03:58:53 +0000] [864] [DEBUG] POST /accounts/login/
+[2016-03-23 03:58:54 +0000] [864] [DEBUG] POST /accounts/login/
+[2016-03-23 03:58:55 +0000] [864] [DEBUG] GET /
+[2016-03-23 03:59:02 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 03:59:05 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 03:59:18 +0000] [864] [DEBUG] GET /admin
+[2016-03-23 03:59:18 +0000] [864] [DEBUG] GET /admin/
+[2016-03-23 03:59:21 +0000] [865] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 03:59:21 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 03:59:23 +0000] [866] [DEBUG] GET /admin/socialaccount/socialapp/add/
+[2016-03-23 03:59:23 +0000] [866] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 03:59:57 +0000] [866] [DEBUG] POST /admin/socialaccount/socialapp/add/
+[2016-03-23 03:59:57 +0000] [866] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 03:59:57 +0000] [866] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:00:01 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:00:09 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:00:12 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:00:12 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:00:13 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:00:19 +0000] [864] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:00:22 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:00:51 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:01:20 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:01:23 +0000] [864] [DEBUG] GET /me
+[2016-03-23 04:01:23 +0000] [864] [DEBUG] GET /me/
+[2016-03-23 04:01:25 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:01:27 +0000] [864] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:01:27 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:01:27 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:01:30 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:01:30 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:04:40 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:04:43 +0000] [866] [DEBUG] GET /favicon.ico
+[2016-03-23 04:04:45 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 04:04:45 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:04:48 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:04:50 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:04:59 +0000] [866] [DEBUG] GET /accounts/signup/
+[2016-03-23 04:05:01 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:05:07 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:05:17 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 04:05:19 +0000] [866] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:05:19 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:05:19 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:06:04 +0000] [866] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:06:05 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:06:05 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:06:15 +0000] [865] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 04:06:15 +0000] [864] [DEBUG] GET /admin/login/
+[2016-03-23 04:06:16 +0000] [864] [DEBUG] POST /admin/login/
+[2016-03-23 04:06:19 +0000] [864] [DEBUG] POST /admin/login/
+[2016-03-23 04:06:19 +0000] [865] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 04:06:22 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:06:22 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:06:25 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/1/
+[2016-03-23 04:06:25 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:06:29 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:06:31 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/2/
+[2016-03-23 04:06:32 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:06:41 +0000] [864] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 04:06:46 +0000] [864] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:06:49 +0000] [865] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:06:49 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:06:50 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:06:53 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:07:00 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:07:01 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:07:01 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:07:03 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:07:06 +0000] [864] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:07:06 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:07:25 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:07:26 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:07:47 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:07:51 +0000] [866] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-23 04:07:54 +0000] [866] [DEBUG] GET /me
+[2016-03-23 04:07:54 +0000] [866] [DEBUG] GET /me/
+[2016-03-23 04:08:00 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:01 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:08:04 +0000] [865] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:05 +0000] [864] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:05 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:05 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:08:29 +0000] [866] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:30 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:08:34 +0000] [864] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:36 +0000] [864] [DEBUG] POST /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:36 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:08:36 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:08:53 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:08:56 +0000] [865] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:08:56 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:08:56 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:08:57 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 04:08:57 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:08:59 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:09:00 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:09:01 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:09 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:13 +0000] [864] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:09:13 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:13 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:14 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:09:14 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:09:15 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:09:16 +0000] [864] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:09:16 +0000] [864] [DEBUG] GET /accounts/social/signup/
+[2016-03-23 04:09:19 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:22 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:09:23 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:09:24 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/4/
+[2016-03-23 04:09:24 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:09:24 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:09:26 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:09:26 +0000] [864] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:09:26 +0000] [864] [DEBUG] GET /accounts/social/signup/
+[2016-03-23 04:09:28 +0000] [864] [DEBUG] POST /accounts/social/signup/
+[2016-03-23 04:09:29 +0000] [864] [DEBUG] GET /accounts/social/signup/
+[2016-03-23 04:09:36 +0000] [864] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:09:43 +0000] [864] [DEBUG] POST /admin/socialaccount/socialaccount/4/
+[2016-03-23 04:09:43 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:09:44 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:09:49 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/4/
+[2016-03-23 04:09:49 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:09:50 +0000] [864] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:09:54 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:09:55 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:10:41 +0000] [865] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 04:10:42 +0000] [865] [DEBUG] GET /admin/
+[2016-03-23 04:10:55 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:10:57 +0000] [866] [DEBUG] GET /favicon.ico
+[2016-03-23 04:11:02 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:11:11 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:11:12 +0000] [866] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:11:19 +0000] [865] [DEBUG] POST /admin/auth/user/
+[2016-03-23 04:11:21 +0000] [865] [DEBUG] POST /admin/auth/user/
+[2016-03-23 04:11:21 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:11:21 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:11:21 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:11:21 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:11:23 +0000] [865] [DEBUG] GET /admin/auth/
+[2016-03-23 04:11:24 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 04:11:24 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:11:25 +0000] [865] [DEBUG] GET /admin/
+[2016-03-23 04:11:26 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:11:27 +0000] [865] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 04:11:27 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:11:29 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:12:17 +0000] [865] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 04:12:18 +0000] [865] [DEBUG] GET /admin/
+[2016-03-23 04:12:21 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:12:21 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:12:27 +0000] [865] [DEBUG] GET /admin/
+[2016-03-23 04:12:30 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:12:30 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:12:33 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/5/
+[2016-03-23 04:12:33 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:12:36 +0000] [864] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:12:45 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:12:47 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:12:47 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:12:48 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:12:52 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:12:52 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:13:26 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:13:27 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:20:20 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:20:21 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:20:23 +0000] [865] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:20:23 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:04 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 04:21:05 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:06 +0000] [864] [DEBUG] GET /admin/socialaccount/socialaccount/6/
+[2016-03-23 04:21:07 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:08 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:21:11 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:21:17 +0000] [865] [DEBUG] GET /admin/
+[2016-03-23 04:21:19 +0000] [865] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:21:19 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:21 +0000] [865] [DEBUG] GET /admin/auth/user/7/
+[2016-03-23 04:21:21 +0000] [865] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:31 +0000] [864] [DEBUG] POST /admin/auth/user/7/
+[2016-03-23 04:21:31 +0000] [864] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:21:31 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:42 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:21:45 +0000] [865] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:21:45 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:21:45 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:21:48 +0000] [864] [DEBUG] GET /accounts/login
+[2016-03-23 04:21:48 +0000] [864] [DEBUG] GET /accounts/login/
+[2016-03-23 04:21:49 +0000] [864] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:21:49 +0000] [864] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:21:50 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:21:53 +0000] [864] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:21:54 +0000] [864] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:21:56 +0000] [864] [DEBUG] GET /admin/
+[2016-03-23 04:22:37 +0000] [864] [DEBUG] GET /
+[2016-03-23 04:22:39 +0000] [866] [DEBUG] GET /accounts/login
+[2016-03-23 04:22:39 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 04:22:40 +0000] [866] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:22:41 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:22:48 +0000] [866] [DEBUG] GET /admin/auth/user/
+[2016-03-23 04:22:49 +0000] [866] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 04:22:51 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:22:54 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:22:55 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:23:54 +0000] [865] [DEBUG] GET /ghk
+[2016-03-23 04:24:04 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:24:11 +0000] [865] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:37:59 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:38:02 +0000] [866] [DEBUG] GET /accounts/login
+[2016-03-23 04:38:02 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 04:38:03 +0000] [866] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:38:04 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:38:04 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:38:06 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:39:18 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:39:21 +0000] [865] [DEBUG] POST /accounts/logout/
+[2016-03-23 04:39:21 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:39:21 +0000] [865] [DEBUG] GET /
+[2016-03-23 04:39:23 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 04:39:23 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:40:33 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 04:41:37 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:41:44 +0000] [865] [DEBUG] GET /accounts/login
+[2016-03-23 04:41:44 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:41:47 +0000] [865] [DEBUG] GET /accounts/github/login/
+[2016-03-23 04:41:57 +0000] [866] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 04:41:57 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:42:03 +0000] [864] [DEBUG] GET /me
+[2016-03-23 04:42:03 +0000] [864] [DEBUG] GET /me/
+[2016-03-23 04:42:14 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 04:42:18 +0000] [866] [DEBUG] POST /me/
+[2016-03-23 04:42:18 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:42:27 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:45:54 +0000] [865] [DEBUG] GET /accounts/login/
+[2016-03-23 04:45:59 +0000] [866] [DEBUG] GET /
+[2016-03-23 04:46:01 +0000] [866] [DEBUG] GET /accounts/login
+[2016-03-23 04:46:01 +0000] [866] [DEBUG] GET /accounts/login/
+[2016-03-23 00:46:09 +0000] [855] [INFO] Handling signal: term
+[2016-03-23 04:46:09 +0000] [865] [INFO] Worker exiting (pid: 865)
+[2016-03-23 04:46:09 +0000] [866] [INFO] Worker exiting (pid: 866)
+[2016-03-23 04:46:09 +0000] [864] [INFO] Worker exiting (pid: 864)
+[2016-03-23 00:46:09 +0000] [855] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-23 00:46:10 +0000] [1538] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f78955b4e60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f78955b4b90>
+  pre_fork: <function pre_fork at 0x7f78955b4cf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f78955b4a28>
+  pre_exec: <function pre_exec at 0x7f78955bc488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f78955bc050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f78955bcb18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f78955bc5f0>
+  post_request: <function post_request at 0x7f78955bc6e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f78955bc1b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f78955bc848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f78955b48c0>
+  worker_abort: <function worker_abort at 0x7f78955bc320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f78955bc9b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-23 00:46:10 +0000] [1538] [INFO] Starting gunicorn 19.4.5
+[2016-03-23 00:46:10 +0000] [1538] [DEBUG] Arbiter booted
+[2016-03-23 00:46:10 +0000] [1538] [INFO] Listening at: http://0.0.0.0:8000 (1538)
+[2016-03-23 00:46:10 +0000] [1538] [INFO] Using worker: sync
+[2016-03-23 00:46:10 +0000] [1550] [INFO] Booting worker with pid: 1550
+[2016-03-23 00:46:10 +0000] [1553] [INFO] Booting worker with pid: 1553
+[2016-03-23 00:46:10 +0000] [1554] [INFO] Booting worker with pid: 1554
+[2016-03-23 00:46:10 +0000] [1538] [DEBUG] 3 workers
+[2016-03-23 04:46:14 +0000] [1554] [DEBUG] GET /accounts/login/
+[2016-03-23 04:50:34 +0000] [1553] [DEBUG] GET /accounts/login/
+[2016-03-23 04:55:00 +0000] [1550] [DEBUG] GET /accounts/signup/
+[2016-03-23 05:15:59 +0000] [1553] [DEBUG] GET /
+[2016-03-23 06:08:34 +0000] [1550] [DEBUG] GET /
+[2016-03-23 06:08:36 +0000] [1550] [DEBUG] GET /favicon.ico
+[2016-03-23 06:08:40 +0000] [1550] [DEBUG] GET /
+[2016-03-23 06:08:41 +0000] [1550] [DEBUG] GET /
+[2016-03-23 06:08:42 +0000] [1550] [DEBUG] GET /accounts/login
+[2016-03-23 06:08:42 +0000] [1550] [DEBUG] GET /accounts/login/
+[2016-03-23 06:08:43 +0000] [1550] [DEBUG] POST /accounts/login/
+[2016-03-23 06:08:44 +0000] [1550] [DEBUG] GET /accounts/github/login/
+[2016-03-23 06:08:44 +0000] [1554] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 06:08:45 +0000] [1554] [DEBUG] GET /
+[2016-03-23 06:09:15 +0000] [1553] [DEBUG] GET /
+[2016-03-23 06:09:36 +0000] [1553] [DEBUG] GET /admin
+[2016-03-23 06:09:36 +0000] [1553] [DEBUG] GET /admin/
+[2016-03-23 06:09:40 +0000] [1553] [DEBUG] GET /admin/rental/event/
+[2016-03-23 06:09:40 +0000] [1553] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:09:42 +0000] [1553] [DEBUG] GET /admin/rental/event/add/
+[2016-03-23 06:09:42 +0000] [1553] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:15 +0000] [1550] [DEBUG] GET /admin/rental/manager/add/
+[2016-03-23 06:10:15 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:19 +0000] [1550] [DEBUG] POST /admin/rental/manager/add/
+[2016-03-23 06:10:20 +0000] [1554] [DEBUG] GET /admin/rental/manager/add/
+[2016-03-23 06:10:21 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:24 +0000] [1554] [DEBUG] POST /admin/rental/manager/add/
+[2016-03-23 06:10:25 +0000] [1554] [DEBUG] GET /admin/rental/manager/add/
+[2016-03-23 06:10:25 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:27 +0000] [1554] [DEBUG] POST /admin/rental/manager/add/
+[2016-03-23 06:10:29 +0000] [1554] [DEBUG] GET /admin/rental/manager/add/
+[2016-03-23 06:10:29 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:32 +0000] [1554] [DEBUG] POST /admin/rental/manager/add/
+[2016-03-23 06:10:33 +0000] [1554] [DEBUG] GET /admin/rental/manager/add/
+[2016-03-23 06:10:34 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:36 +0000] [1554] [DEBUG] POST /admin/rental/manager/add/
+[2016-03-23 06:10:38 +0000] [1554] [DEBUG] GET /admin/rental/device/add/
+[2016-03-23 06:10:38 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:10:49 +0000] [1550] [DEBUG] GET /admin/rental/manufacturer/add/
+[2016-03-23 06:10:49 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:11:24 +0000] [1553] [DEBUG] POST /admin/rental/manufacturer/add/
+[2016-03-23 06:11:25 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:11:30 +0000] [1550] [DEBUG] POST /admin/rental/manufacturer/add/
+[2016-03-23 06:12:10 +0000] [1553] [DEBUG] GET /admin/sites/site/
+[2016-03-23 06:12:12 +0000] [1553] [DEBUG] GET /admin/socialaccount/socialapp/
+[2016-03-23 06:12:13 +0000] [1553] [DEBUG] GET /admin/socialaccount/socialtoken/
+[2016-03-23 06:12:13 +0000] [1554] [DEBUG] GET /admin/socialaccount/socialaccount/
+[2016-03-23 06:12:13 +0000] [1554] [DEBUG] GET /admin/socialaccount/socialapp/1/
+[2016-03-23 06:12:14 +0000] [1550] [DEBUG] GET /admin/socialaccount/
+[2016-03-23 06:12:14 +0000] [1550] [DEBUG] GET /admin/
+[2016-03-23 06:12:15 +0000] [1550] [DEBUG] GET /admin/socialaccount/socialtoken/add/
+[2016-03-23 06:12:31 +0000] [1550] [DEBUG] GET /admin/rental/manufacturer/add/
+[2016-03-23 06:12:31 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:12:36 +0000] [1550] [DEBUG] GET /admin/rental/manufacturer/add/
+[2016-03-23 06:12:37 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:12:51 +0000] [1553] [DEBUG] POST /admin/rental/manufacturer/add/
+[2016-03-23 06:13:48 +0000] [1550] [DEBUG] POST /admin/rental/device/add/
+[2016-03-23 06:14:03 +0000] [1554] [DEBUG] GET /admin/rental/inventory/add/
+[2016-03-23 06:14:03 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:14:11 +0000] [1550] [DEBUG] POST /admin/rental/event/add/
+[2016-03-23 06:14:11 +0000] [1550] [DEBUG] GET /admin/rental/event/
+[2016-03-23 06:14:11 +0000] [1550] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:14:13 +0000] [1554] [DEBUG] GET /admin/rental/event/1/
+[2016-03-23 06:14:13 +0000] [1554] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:14:17 +0000] [1554] [DEBUG] POST /admin/rental/event/1/
+[2016-03-23 06:14:17 +0000] [1553] [DEBUG] GET /admin/rental/event/
+[2016-03-23 06:14:17 +0000] [1553] [DEBUG] GET /admin/jsi18n/
+[2016-03-23 06:14:22 +0000] [1553] [DEBUG] GET /
+[2016-03-23 06:14:24 +0000] [1553] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 06:14:24 +0000] [1553] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 06:14:26 +0000] [1553] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 06:14:54 +0000] [1553] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 06:15:02 +0000] [1550] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 02:16:47 +0000] [1538] [INFO] Handling signal: term
+[2016-03-23 06:16:47 +0000] [1553] [INFO] Worker exiting (pid: 1553)
+[2016-03-23 06:16:47 +0000] [1554] [INFO] Worker exiting (pid: 1554)
+[2016-03-23 06:16:47 +0000] [1550] [INFO] Worker exiting (pid: 1550)
+[2016-03-23 02:16:47 +0000] [1538] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-23 02:16:48 +0000] [2708] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7fc9eeae2e60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7fc9eeae2b90>
+  pre_fork: <function pre_fork at 0x7fc9eeae2cf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7fc9eeae2a28>
+  pre_exec: <function pre_exec at 0x7fc9eeaea488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7fc9eeaea050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7fc9eeaeab18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7fc9eeaea5f0>
+  post_request: <function post_request at 0x7fc9eeaea6e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7fc9eeaea1b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7fc9eeaea848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7fc9eeae28c0>
+  worker_abort: <function worker_abort at 0x7fc9eeaea320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7fc9eeaea9b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-23 02:16:48 +0000] [2708] [INFO] Starting gunicorn 19.4.5
+[2016-03-23 02:16:48 +0000] [2708] [DEBUG] Arbiter booted
+[2016-03-23 02:16:48 +0000] [2708] [INFO] Listening at: http://0.0.0.0:8000 (2708)
+[2016-03-23 02:16:48 +0000] [2708] [INFO] Using worker: sync
+[2016-03-23 02:16:48 +0000] [2717] [INFO] Booting worker with pid: 2717
+[2016-03-23 02:16:48 +0000] [2720] [INFO] Booting worker with pid: 2720
+[2016-03-23 02:16:48 +0000] [2721] [INFO] Booting worker with pid: 2721
+[2016-03-23 02:16:48 +0000] [2708] [DEBUG] 3 workers
+[2016-03-23 06:16:52 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 06:17:01 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 06:17:02 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 06:17:26 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 06:17:27 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 06:18:29 +0000] [2720] [DEBUG] GET /
+[2016-03-23 06:18:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 06:18:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 06:18:34 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 06:18:39 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 06:18:46 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 08:31:21 +0000] [2717] [DEBUG] GET /
+[2016-03-23 09:33:13 +0000] [2721] [DEBUG] GET /testproxy.php
+[2016-03-23 12:32:40 +0000] [2720] [DEBUG] GET /robots.txt
+[2016-03-23 12:46:34 +0000] [2717] [DEBUG] GET /
+[2016-03-23 12:46:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-23 12:46:39 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:46:39 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:46:39 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 12:46:43 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:46:58 +0000] [2717] [DEBUG] GET /accounts/login
+[2016-03-23 12:46:58 +0000] [2717] [DEBUG] GET /accounts/login/
+[2016-03-23 12:47:00 +0000] [2720] [DEBUG] GET /accounts/github/login/
+[2016-03-23 12:47:04 +0000] [2721] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 12:47:04 +0000] [2721] [DEBUG] GET /
+[2016-03-23 12:47:07 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:47:07 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:47:10 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:47:31 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:47:31 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 12:47:40 +0000] [2720] [DEBUG] GET /me
+[2016-03-23 12:47:40 +0000] [2721] [DEBUG] GET /me/
+[2016-03-23 12:47:57 +0000] [2720] [DEBUG] POST /me/
+[2016-03-23 12:47:57 +0000] [2720] [DEBUG] GET /
+[2016-03-23 12:47:59 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:47:59 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:48:10 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:48:23 +0000] [2720] [DEBUG] GET /api/reserve/
+[2016-03-23 12:48:35 +0000] [2721] [DEBUG] GET /api/reserve/
+[2016-03-23 12:48:40 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:48:40 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 12:49:08 +0000] [2717] [DEBUG] GET /api/reserve/
+[2016-03-23 12:49:33 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:49:34 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 12:49:39 +0000] [2721] [DEBUG] GET /accounts/login
+[2016-03-23 12:49:39 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-23 12:49:41 +0000] [2721] [DEBUG] GET /accounts/github/login/
+[2016-03-23 12:49:56 +0000] [2720] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 12:49:56 +0000] [2720] [DEBUG] GET /
+[2016-03-23 12:49:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:49:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:50:00 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:50:03 +0000] [2720] [DEBUG] GET /api/reserve/
+[2016-03-23 12:55:22 +0000] [2720] [DEBUG] GET /
+[2016-03-23 12:55:25 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:55:25 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:55:25 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 12:55:27 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:55:30 +0000] [2720] [DEBUG] GET /accounts/login
+[2016-03-23 12:55:30 +0000] [2720] [DEBUG] GET /accounts/login/
+[2016-03-23 12:55:31 +0000] [2720] [DEBUG] GET /accounts/github/login/
+[2016-03-23 12:55:31 +0000] [2720] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 12:55:32 +0000] [2720] [DEBUG] GET /
+[2016-03-23 12:55:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 12:55:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 12:55:35 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 12:55:39 +0000] [2721] [DEBUG] GET /api/reserve/
+[2016-03-23 12:56:06 +0000] [2717] [DEBUG] GET /api/reserve/
+[2016-03-23 12:58:42 +0000] [2720] [DEBUG] GET /
+[2016-03-23 13:04:38 +0000] [2717] [DEBUG] GET /product
+[2016-03-23 13:04:38 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-23 13:04:38 +0000] [2721] [DEBUG] GET /apple-touch-icon-precomposed.png
+[2016-03-23 13:04:39 +0000] [2721] [DEBUG] GET /apple-touch-icon.png
+[2016-03-23 13:04:39 +0000] [2721] [DEBUG] GET /product
+[2016-03-23 13:04:39 +0000] [2721] [DEBUG] GET /apple-touch-icon-precomposed.png
+[2016-03-23 13:04:39 +0000] [2721] [DEBUG] GET /apple-touch-icon.png
+[2016-03-23 13:23:57 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 13:24:02 +0000] [2720] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 13:24:06 +0000] [2720] [DEBUG] GET /
+[2016-03-23 13:24:07 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 13:24:07 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 13:24:11 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /muieblackcat
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /phpMyAdmin/scripts/setup.php
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /phpmyadmin/scripts/setup.php
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /pma/scripts/setup.php
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /myadmin/scripts/setup.php
+[2016-03-23 13:45:51 +0000] [2721] [DEBUG] GET /MyAdmin/scripts/setup.php
+[2016-03-23 14:56:22 +0000] [2720] [DEBUG] GET /
+[2016-03-23 14:56:22 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-23 14:56:51 +0000] [2721] [DEBUG] HEAD /
+[2016-03-23 15:55:42 +0000] [2720] [DEBUG] GET /
+[2016-03-23 15:55:46 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 15:55:46 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 15:55:46 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 15:55:49 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 15:59:57 +0000] [2717] [DEBUG] GET /
+[2016-03-23 16:00:00 +0000] [2721] [DEBUG] POST /accounts/logout/
+[2016-03-23 16:00:00 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:00:00 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:00:02 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:00:03 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:00:05 +0000] [2721] [DEBUG] GET /accounts/login
+[2016-03-23 16:00:05 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-23 16:00:07 +0000] [2721] [DEBUG] GET /accounts/github/login/
+[2016-03-23 16:00:11 +0000] [2717] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 16:00:12 +0000] [2717] [DEBUG] GET /
+[2016-03-23 16:00:20 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 16:00:20 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 16:00:21 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 16:00:29 +0000] [2721] [DEBUG] GET /me
+[2016-03-23 16:00:29 +0000] [2721] [DEBUG] GET /me/
+[2016-03-23 16:00:47 +0000] [2720] [DEBUG] POST /me/
+[2016-03-23 16:00:47 +0000] [2720] [DEBUG] GET /
+[2016-03-23 16:00:48 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 16:00:48 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 16:00:51 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 16:00:54 +0000] [2720] [DEBUG] GET /api/reserve/
+[2016-03-23 16:00:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 16:00:58 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 16:01:00 +0000] [2720] [DEBUG] GET /
+[2016-03-23 16:01:02 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 16:01:17 +0000] [2717] [DEBUG] GET /api/rent/
+[2016-03-23 16:01:17 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 16:01:29 +0000] [2717] [DEBUG] GET /api/return/
+/home/hardwarelab/.virtualenvs/hardwarelab/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Rental.returned_at received a naive datetime (2016-03-23 16:01:29.887220) while time zone support is active.
+  RuntimeWarning)
+
+[2016-03-23 16:01:34 +0000] [2720] [DEBUG] GET /api/rent/
+[2016-03-23 16:01:34 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 16:01:37 +0000] [2720] [DEBUG] GET /api/return/
+/home/hardwarelab/.virtualenvs/hardwarelab/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Rental.returned_at received a naive datetime (2016-03-23 16:01:37.527899) while time zone support is active.
+  RuntimeWarning)
+
+[2016-03-23 16:01:40 +0000] [2720] [DEBUG] GET /
+[2016-03-23 16:06:29 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:12:26 +0000] [2717] [DEBUG] GET /
+[2016-03-23 16:14:37 +0000] [2721] [DEBUG] GET /
+[2016-03-23 16:14:41 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 16:14:41 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 16:14:41 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 16:14:48 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 16:28:06 +0000] [2720] [DEBUG] GET /
+[2016-03-23 16:28:44 +0000] [2721] [DEBUG] GET /
+[2016-03-23 18:04:38 +0000] [2721] [DEBUG] GET /
+[2016-03-23 18:04:50 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 18:04:50 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 18:04:51 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:13:55 +0000] [2721] [DEBUG] GET /
+[2016-03-23 19:13:55 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-23 19:13:56 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 19:13:56 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 19:13:56 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:13:57 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:13:59 +0000] [2720] [DEBUG] GET /accounts/login
+[2016-03-23 19:13:59 +0000] [2720] [DEBUG] GET /accounts/login/
+[2016-03-23 19:14:00 +0000] [2720] [DEBUG] GET /accounts/github/login/
+[2016-03-23 19:14:00 +0000] [2720] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 19:14:00 +0000] [2720] [DEBUG] GET /
+[2016-03-23 19:14:02 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 19:14:02 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 19:14:03 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:14:05 +0000] [2720] [DEBUG] GET /api/reserve/
+[2016-03-23 19:28:37 +0000] [2720] [DEBUG] GET /
+[2016-03-23 19:28:59 +0000] [2721] [DEBUG] GET /
+[2016-03-23 19:29:01 +0000] [2721] [DEBUG] POST /accounts/logout/
+[2016-03-23 19:29:02 +0000] [2721] [DEBUG] GET /
+[2016-03-23 19:29:02 +0000] [2721] [DEBUG] GET /
+[2016-03-23 19:29:03 +0000] [2721] [DEBUG] GET /accounts/login
+[2016-03-23 19:29:03 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-23 19:29:05 +0000] [2721] [DEBUG] GET /accounts/github/login/
+[2016-03-23 19:29:05 +0000] [2721] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-23 19:29:05 +0000] [2721] [DEBUG] GET /
+[2016-03-23 19:29:17 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 19:29:17 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 19:29:17 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:29:18 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:31:44 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:31:45 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:33:07 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:33:08 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:34:19 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:34:20 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:34:30 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:34:31 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:35:30 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:35:31 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:36:05 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:36:05 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:36:06 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:36:32 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 19:36:33 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 19:36:40 +0000] [2717] [DEBUG] GET /api/reserve/
+[2016-03-23 20:11:36 +0000] [2721] [DEBUG] GET /
+[2016-03-23 20:19:29 +0000] [2717] [DEBUG] GET /
+[2016-03-23 20:19:45 +0000] [2720] [DEBUG] GET /
+[2016-03-23 20:33:24 +0000] [2721] [DEBUG] GET /
+[2016-03-23 20:33:26 +0000] [2721] [DEBUG] GET /
+[2016-03-23 20:33:29 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 20:33:37 +0000] [2721] [DEBUG] GET /api/rent/
+[2016-03-23 20:33:37 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 20:33:40 +0000] [2721] [DEBUG] GET /api/return/
+/home/hardwarelab/.virtualenvs/hardwarelab/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Rental.returned_at received a naive datetime (2016-03-23 20:33:40.910031) while time zone support is active.
+  RuntimeWarning)
+
+[2016-03-23 20:33:42 +0000] [2721] [DEBUG] GET /
+[2016-03-23 20:33:44 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 20:33:44 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 20:33:44 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 20:33:45 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 20:33:52 +0000] [2721] [DEBUG] GET /api/reserve/
+[2016-03-23 20:33:54 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 20:33:54 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 20:34:10 +0000] [2721] [DEBUG] GET /MIB/index.aspx
+[2016-03-23 20:35:59 +0000] [2717] [DEBUG] GET /
+[2016-03-23 20:36:58 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 20:37:02 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 20:37:04 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:09:44 +0000] [2717] [DEBUG] GET /product/app/f7c3b99a.vendor.js
+[2016-03-23 21:12:52 +0000] [2720] [DEBUG] GET /
+[2016-03-23 21:13:37 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:13:38 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:13:40 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-23 21:14:27 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:14:28 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:16:01 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:16:02 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:16:19 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:16:19 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:16:39 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:16:40 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:18:26 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:18:27 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:20:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:20:59 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:21:01 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:21:02 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:21:18 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:21:18 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 21:23:58 +0000] [2717] [DEBUG] GET /
+[2016-03-23 21:24:25 +0000] [2720] [DEBUG] GET /
+[2016-03-23 21:26:08 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 21:26:08 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 22:06:21 +0000] [2720] [DEBUG] GET /
+[2016-03-23 22:06:23 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-23 22:06:24 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 22:06:24 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-23 22:06:26 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 22:06:27 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-23 22:06:29 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-23 22:06:38 +0000] [2720] [DEBUG] GET /
+[2016-03-23 22:06:39 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-23 22:18:58 +0000] [2721] [DEBUG] GET /
+[2016-03-23 22:19:14 +0000] [2721] [DEBUG] GET /
+[2016-03-23 22:34:24 +0000] [2717] [DEBUG] GET /
+[2016-03-23 23:18:47 +0000] [2721] [DEBUG] GET /
+[2016-03-23 23:22:24 +0000] [2717] [DEBUG] GET /
+[2016-03-23 23:22:48 +0000] [2720] [DEBUG] GET /
+[2016-03-23 23:36:10 +0000] [2720] [DEBUG] GET /
+[2016-03-23 23:59:11 +0000] [2721] [DEBUG] GET /testproxy.php
+[2016-03-24 00:16:16 +0000] [2720] [DEBUG] GET /
+[2016-03-24 00:20:52 +0000] [2717] [DEBUG] GET /
+[2016-03-24 00:21:12 +0000] [2720] [DEBUG] GET /
+[2016-03-24 01:23:07 +0000] [2720] [DEBUG] GET /
+[2016-03-24 01:23:32 +0000] [2717] [DEBUG] GET /
+[2016-03-24 01:49:14 +0000] [2720] [DEBUG] GET /
+[2016-03-24 02:09:45 +0000] [2721] [DEBUG] GET /
+[2016-03-24 02:09:48 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 02:10:03 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 02:10:03 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 02:10:03 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 02:10:11 +0000] [2720] [DEBUG] GET /
+[2016-03-24 02:10:21 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 02:10:21 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 02:11:08 +0000] [2720] [DEBUG] GET /
+[2016-03-24 02:11:10 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 02:11:13 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 02:11:13 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 02:11:13 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 02:11:35 +0000] [2720] [DEBUG] GET /
+[2016-03-24 02:11:37 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 02:11:42 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 02:11:49 +0000] [2721] [DEBUG] GET /
+[2016-03-24 02:11:50 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 02:15:15 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 02:17:42 +0000] [2720] [DEBUG] GET /
+[2016-03-24 02:17:55 +0000] [2717] [DEBUG] GET /
+[2016-03-24 02:44:15 +0000] [2720] [DEBUG] GET /cgi-bin/test-cgi
+[2016-03-24 02:58:06 +0000] [2720] [DEBUG] HEAD /
+[2016-03-24 02:58:13 +0000] [2717] [DEBUG] HEAD /
+[2016-03-24 03:06:20 +0000] [2721] [DEBUG] GET /robots.txt
+[2016-03-24 03:06:29 +0000] [2720] [DEBUG] GET /app/f7c3b99a.vendor.js
+[2016-03-24 03:06:31 +0000] [2720] [DEBUG] GET /app/a1eff654.app.js
+[2016-03-24 03:06:35 +0000] [2720] [DEBUG] GET /app/3634ef50.vendor.css
+[2016-03-24 03:09:32 +0000] [2721] [DEBUG] GET /testproxy.php
+[2016-03-24 03:26:21 +0000] [2721] [DEBUG] GET /
+[2016-03-24 03:26:54 +0000] [2717] [DEBUG] GET /
+[2016-03-24 03:35:18 +0000] [2717] [DEBUG] GET /
+[2016-03-24 03:35:20 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 03:35:25 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 03:35:25 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 03:35:26 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 03:35:37 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 04:07:11 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:07:13 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:07:14 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 04:07:16 +0000] [2721] [DEBUG] GET /
+[2016-03-24 04:07:23 +0000] [2721] [DEBUG] GET /
+[2016-03-24 04:07:26 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 04:07:26 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:07:27 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:07:29 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 04:07:29 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:07:29 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 04:07:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 04:07:34 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 04:07:38 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 04:07:39 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:07:39 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 04:07:39 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:07:39 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 04:07:39 +0000] [2720] [DEBUG] GET /
+[2016-03-24 04:07:41 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 04:07:42 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 04:07:42 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:07:46 +0000] [2720] [DEBUG] GET /
+[2016-03-24 04:09:42 +0000] [2720] [DEBUG] GET /
+[2016-03-24 04:19:59 +0000] [2720] [DEBUG] GET /
+[2016-03-24 04:20:18 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:45:50 +0000] [2720] [DEBUG] GET /
+[2016-03-24 04:53:40 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:58:26 +0000] [2717] [DEBUG] GET /
+[2016-03-24 04:58:28 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 04:59:01 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 04:59:01 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 04:59:02 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 05:10:30 +0000] [2720] [DEBUG] GET /
+[2016-03-24 05:10:31 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 05:11:39 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 05:11:39 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 05:11:39 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 05:11:53 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 05:13:43 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 05:13:43 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 05:22:43 +0000] [2720] [DEBUG] GET /
+[2016-03-24 05:23:05 +0000] [2720] [DEBUG] GET /
+[2016-03-24 05:24:05 +0000] [2721] [DEBUG] GET /
+[2016-03-24 05:24:07 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 05:24:08 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 05:24:08 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 05:24:09 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 05:24:14 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 05:24:25 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 05:24:31 +0000] [2717] [DEBUG] GET /
+[2016-03-24 05:24:47 +0000] [2721] [DEBUG] GET /
+[2016-03-24 05:32:32 +0000] [2720] [DEBUG] GET /
+[2016-03-24 05:32:34 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 05:57:54 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 05:57:54 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 05:57:55 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 05:58:08 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 05:58:14 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 06:05:43 +0000] [2720] [DEBUG] HEAD /robots.txt
+[2016-03-24 06:20:36 +0000] [2717] [DEBUG] GET /
+[2016-03-24 06:20:55 +0000] [2717] [DEBUG] GET /
+[2016-03-24 07:24:29 +0000] [2717] [DEBUG] GET /
+[2016-03-24 07:24:57 +0000] [2720] [DEBUG] GET /
+[2016-03-24 07:26:03 +0000] [2721] [DEBUG] GET /
+[2016-03-24 07:28:02 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 07:28:02 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 07:28:04 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 07:28:06 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 07:29:38 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 07:29:39 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 07:29:42 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 07:29:56 +0000] [2721] [DEBUG] GET /
+[2016-03-24 08:17:47 +0000] [2717] [DEBUG] GET /
+[2016-03-24 08:18:01 +0000] [2720] [DEBUG] GET /
+[2016-03-24 08:38:16 +0000] [2717] [DEBUG] GET /
+[2016-03-24 08:38:18 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 08:38:25 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 08:38:25 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 08:38:26 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 08:38:31 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 08:38:38 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 08:38:40 +0000] [2720] [DEBUG] GET /accounts/login
+[2016-03-24 08:38:40 +0000] [2720] [DEBUG] GET /accounts/login/
+[2016-03-24 08:38:45 +0000] [2720] [DEBUG] POST /accounts/login/
+[2016-03-24 08:38:49 +0000] [2717] [DEBUG] POST /accounts/login/
+[2016-03-24 08:38:52 +0000] [2721] [DEBUG] GET /accounts/github/login/
+[2016-03-24 08:38:54 +0000] [2721] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-24 08:38:55 +0000] [2721] [DEBUG] GET /
+[2016-03-24 08:38:59 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 08:38:59 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 08:39:01 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 08:39:16 +0000] [2717] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-24 08:39:18 +0000] [2717] [DEBUG] GET /me
+[2016-03-24 08:39:18 +0000] [2717] [DEBUG] GET /me/
+[2016-03-24 08:39:26 +0000] [2717] [DEBUG] POST /me/
+[2016-03-24 08:39:26 +0000] [2717] [DEBUG] GET /
+[2016-03-24 08:39:27 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 08:39:27 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 08:39:35 +0000] [2721] [DEBUG] GET /
+[2016-03-24 08:41:47 +0000] [2717] [DEBUG] GET /me/
+[2016-03-24 08:41:48 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-24 08:41:56 +0000] [2721] [DEBUG] GET /me/
+[2016-03-24 08:41:57 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-24 08:42:03 +0000] [2720] [DEBUG] GET /accounts/login/
+[2016-03-24 08:42:10 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-24 09:07:11 +0000] [2720] [DEBUG] GET /robots.txt
+[2016-03-24 09:07:11 +0000] [2720] [DEBUG] GET /
+[2016-03-24 09:24:01 +0000] [2721] [DEBUG] GET /
+[2016-03-24 09:24:28 +0000] [2720] [DEBUG] GET /
+[2016-03-24 10:18:43 +0000] [2721] [DEBUG] GET /
+[2016-03-24 10:18:58 +0000] [2717] [DEBUG] GET /
+[2016-03-24 10:20:46 +0000] [2717] [DEBUG] GET /product/app/app/a1eff654.app.js
+[2016-03-24 10:24:41 +0000] [2717] [DEBUG] GET /
+[2016-03-24 10:24:44 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 10:24:46 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 10:24:46 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 10:24:47 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 10:24:49 +0000] [2720] [DEBUG] GET /
+[2016-03-24 10:26:43 +0000] [2717] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-24 10:26:51 +0000] [2720] [DEBUG] GET /me/
+[2016-03-24 10:27:45 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 11:24:50 +0000] [2721] [DEBUG] GET /
+[2016-03-24 11:25:18 +0000] [2717] [DEBUG] GET /
+[2016-03-24 11:37:41 +0000] [2721] [DEBUG] GET /
+[2016-03-24 11:37:46 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 11:37:46 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 11:37:46 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 11:38:05 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 12:22:22 +0000] [2717] [DEBUG] GET /
+[2016-03-24 12:22:45 +0000] [2721] [DEBUG] GET /
+[2016-03-24 12:40:23 +0000] [2720] [DEBUG] GET /
+[2016-03-24 12:40:28 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 12:40:32 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 12:40:32 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 12:40:33 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 12:40:37 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 13:34:36 +0000] [2720] [DEBUG] GET /
+[2016-03-24 13:34:38 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 13:36:51 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 13:36:52 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:40:20 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 13:43:43 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 13:43:43 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 13:43:44 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:44:40 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 13:44:41 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:44:42 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 13:45:17 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 13:45:18 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:45:33 +0000] [2720] [DEBUG] GET /
+[2016-03-24 13:45:48 +0000] [2721] [DEBUG] GET /
+[2016-03-24 13:46:59 +0000] [2717] [DEBUG] GET /
+[2016-03-24 13:47:00 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 13:47:53 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 13:47:53 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 13:47:53 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:48:05 +0000] [2717] [DEBUG] GET /
+[2016-03-24 13:53:10 +0000] [2720] [DEBUG] GET /
+[2016-03-24 13:53:10 +0000] [2720] [DEBUG] GET /
+[2016-03-24 13:53:33 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 13:53:34 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 13:53:35 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 14:01:13 +0000] [2721] [DEBUG] GET /
+[2016-03-24 14:01:15 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 14:03:12 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 14:03:12 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 14:03:13 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 14:03:24 +0000] [2721] [DEBUG] GET /
+[2016-03-24 14:16:44 +0000] [2720] [DEBUG] GET /
+[2016-03-24 14:16:57 +0000] [2717] [DEBUG] GET /
+[2016-03-24 14:25:39 +0000] [2720] [DEBUG] GET /
+[2016-03-24 14:25:40 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 14:39:06 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 14:39:06 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 14:39:07 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 14:39:18 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 14:56:03 +0000] [2720] [DEBUG] GET /
+[2016-03-24 14:56:04 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 14:56:44 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 14:56:44 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 14:56:44 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 15:09:35 +0000] [2717] [DEBUG] GET /
+[2016-03-24 15:09:36 +0000] [2717] [DEBUG] GET /stauts
+[2016-03-24 15:09:36 +0000] [2721] [DEBUG] GET /
+[2016-03-24 15:09:36 +0000] [2721] [DEBUG] GET /PSBlock
+[2016-03-24 15:09:36 +0000] [2721] [DEBUG] GET /IPMIdevicedesc.xml
+[2016-03-24 15:09:36 +0000] [2721] [DEBUG] GET /stats
+[2016-03-24 15:09:36 +0000] [2721] [DEBUG] GET /
+[2016-03-24 15:09:37 +0000] [2721] [DEBUG] GET /status
+[2016-03-24 15:24:57 +0000] [2721] [DEBUG] GET /
+[2016-03-24 15:25:27 +0000] [2720] [DEBUG] GET /
+[2016-03-24 15:48:05 +0000] [2720] [DEBUG] GET /
+[2016-03-24 15:48:06 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 15:48:07 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 15:48:08 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 15:48:08 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 16:20:51 +0000] [2717] [DEBUG] GET /
+[2016-03-24 16:21:11 +0000] [2720] [DEBUG] GET /
+[2016-03-24 16:25:05 +0000] [2721] [DEBUG] GET /
+[2016-03-24 16:25:10 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 16:25:11 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 16:25:11 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 16:25:11 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 17:20:36 +0000] [2717] [DEBUG] GET /
+[2016-03-24 17:20:54 +0000] [2721] [DEBUG] GET /
+[2016-03-24 17:24:24 +0000] [2717] [DEBUG] GET /robots.txt
+[2016-03-24 17:25:48 +0000] [2720] [DEBUG] GET /
+[2016-03-24 17:47:07 +0000] [2720] [DEBUG] GET /
+[2016-03-24 17:47:10 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 17:47:13 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 17:47:13 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 17:47:13 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 17:47:17 +0000] [2717] [DEBUG] GET /
+[2016-03-24 18:19:53 +0000] [2717] [DEBUG] GET /
+[2016-03-24 18:20:11 +0000] [2717] [DEBUG] GET /
+[2016-03-24 18:35:17 +0000] [2720] [DEBUG] GET /
+[2016-03-24 18:35:20 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 18:35:23 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 18:35:23 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 18:35:24 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 18:54:00 +0000] [2721] [DEBUG] GET /robots.txt
+[2016-03-24 18:54:04 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 19:17:48 +0000] [2717] [DEBUG] GET /
+[2016-03-24 19:17:49 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 19:17:51 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 19:17:51 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 19:17:51 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 19:18:01 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 19:18:06 +0000] [2717] [DEBUG] GET /accounts/login
+[2016-03-24 19:18:06 +0000] [2717] [DEBUG] GET /accounts/login/
+[2016-03-24 19:18:07 +0000] [2717] [DEBUG] GET /accounts/github/login/
+[2016-03-24 19:18:10 +0000] [2717] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-24 19:18:10 +0000] [2717] [DEBUG] GET /
+[2016-03-24 19:18:12 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 19:18:12 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 19:18:15 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 19:21:24 +0000] [2717] [DEBUG] GET /
+[2016-03-24 19:21:26 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 19:21:46 +0000] [2721] [DEBUG] GET /
+[2016-03-24 19:23:57 +0000] [2720] [DEBUG] GET /
+[2016-03-24 19:24:20 +0000] [2717] [DEBUG] GET /
+[2016-03-24 20:15:54 +0000] [2717] [DEBUG] GET /
+[2016-03-24 20:15:55 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 20:16:13 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 20:16:13 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 20:16:13 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 20:19:32 +0000] [2720] [DEBUG] GET /
+[2016-03-24 20:19:48 +0000] [2721] [DEBUG] GET /
+[2016-03-24 21:24:38 +0000] [2717] [DEBUG] GET /
+[2016-03-24 21:25:06 +0000] [2717] [DEBUG] GET /
+[2016-03-24 21:41:43 +0000] [2721] [DEBUG] GET /
+[2016-03-24 21:41:46 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 21:41:48 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 21:41:48 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 21:41:48 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 21:41:52 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 22:07:25 +0000] [2717] [DEBUG] GET /
+[2016-03-24 22:07:26 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:08:06 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 22:08:06 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 22:08:06 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 22:08:19 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 22:22:21 +0000] [2717] [DEBUG] GET /
+[2016-03-24 22:22:45 +0000] [2717] [DEBUG] GET /
+[2016-03-24 22:33:17 +0000] [2717] [DEBUG] GET /
+[2016-03-24 22:33:18 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:19 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:19 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:19 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:19 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:27 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 22:33:27 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 22:33:28 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:28 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:36 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:37 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:39 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:39 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:39 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:42 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:42 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:43 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:47 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 22:33:47 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:48 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:56 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:57 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:33:58 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:02 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 22:34:02 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 23:22:11 +0000] [2717] [DEBUG] GET /
+[2016-03-24 23:22:33 +0000] [2720] [DEBUG] GET /
+[2016-03-24 23:32:48 +0000] [2721] [DEBUG] GET /
+[2016-03-24 23:36:10 +0000] [2720] [DEBUG] GET /
+[2016-03-24 23:36:13 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-24 23:36:50 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 23:36:50 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 23:36:50 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-24 23:36:54 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 23:37:01 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 23:37:02 +0000] [2717] [DEBUG] GET /
+[2016-03-24 23:37:05 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-24 23:37:05 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-24 23:37:09 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-24 23:53:05 +0000] [2721] [DEBUG] GET /product
+[2016-03-24 23:53:05 +0000] [2721] [DEBUG] GET /apple-touch-icon-precomposed.png
+[2016-03-24 23:53:05 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-24 23:53:05 +0000] [2717] [DEBUG] GET /apple-touch-icon.png
+[2016-03-24 23:53:05 +0000] [2717] [DEBUG] GET /product
+[2016-03-24 23:53:05 +0000] [2717] [DEBUG] GET /apple-touch-icon-precomposed.png
+[2016-03-24 23:53:05 +0000] [2717] [DEBUG] GET /apple-touch-icon.png
+[2016-03-25 00:02:55 +0000] [2717] [DEBUG] GET /
+[2016-03-25 00:02:56 +0000] [2720] [DEBUG] GET /favicon.ico
+[2016-03-25 00:02:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 00:02:58 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 00:02:58 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 00:03:03 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 00:03:06 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 00:05:00 +0000] [2717] [DEBUG] GET /
+[2016-03-25 00:05:01 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-25 00:05:03 +0000] [2717] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 00:05:03 +0000] [2717] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 00:05:04 +0000] [2717] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 00:12:56 +0000] [2720] [DEBUG] GET /
+[2016-03-25 00:13:07 +0000] [2717] [DEBUG] GET /
+[2016-03-25 00:13:19 +0000] [2720] [DEBUG] GET /CHANGELOG.txt
+[2016-03-25 00:13:25 +0000] [2717] [DEBUG] GET /
+[2016-03-25 00:13:31 +0000] [2717] [DEBUG] GET /readme.html
+[2016-03-25 00:19:49 +0000] [2720] [DEBUG] GET /
+[2016-03-25 00:20:07 +0000] [2720] [DEBUG] GET /
+[2016-03-25 00:32:55 +0000] [2720] [DEBUG] GET /user/soapCaller.bs
+[2016-03-25 00:37:21 +0000] [2720] [DEBUG] GET /
+[2016-03-25 00:59:26 +0000] [2721] [DEBUG] GET /testproxy.php
+[2016-03-25 01:17:49 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:18:02 +0000] [2717] [DEBUG] GET /
+[2016-03-25 01:24:52 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:24:53 +0000] [2721] [DEBUG] GET /favicon.ico
+[2016-03-25 01:27:37 +0000] [2720] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 01:27:37 +0000] [2720] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 01:27:37 +0000] [2720] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 01:27:40 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 01:27:53 +0000] [2717] [DEBUG] GET /
+[2016-03-25 01:27:54 +0000] [2717] [DEBUG] GET /accounts/login
+[2016-03-25 01:27:54 +0000] [2717] [DEBUG] GET /accounts/login/
+[2016-03-25 01:28:03 +0000] [2717] [DEBUG] GET /accounts/signup/
+[2016-03-25 01:28:20 +0000] [2717] [DEBUG] POST /accounts/signup/
+[2016-03-25 01:29:15 +0000] [2720] [DEBUG] POST /accounts/signup/
+[2016-03-25 01:29:18 +0000] [2721] [DEBUG] GET /accounts/login
+[2016-03-25 01:29:18 +0000] [2721] [DEBUG] GET /accounts/login/
+[2016-03-25 01:29:22 +0000] [2717] [DEBUG] POST /accounts/login/
+[2016-03-25 01:29:22 +0000] [2717] [DEBUG] GET /
+[2016-03-25 01:29:27 +0000] [2717] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 01:29:29 +0000] [2717] [DEBUG] GET /me
+[2016-03-25 01:29:29 +0000] [2717] [DEBUG] GET /me/
+[2016-03-25 01:29:39 +0000] [2717] [DEBUG] POST /me/
+[2016-03-25 01:29:39 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:29:41 +0000] [2721] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 01:29:45 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:29:47 +0000] [2721] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 01:29:48 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:29:49 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 01:29:49 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 01:42:38 +0000] [2721] [DEBUG] GET /
+[2016-03-25 01:42:44 +0000] [2717] [DEBUG] GET /favicon.ico
+[2016-03-25 02:17:41 +0000] [2720] [DEBUG] GET /
+[2016-03-25 02:17:54 +0000] [2721] [DEBUG] GET /
+[2016-03-25 02:27:12 +0000] [2720] [DEBUG] GET /
+[2016-03-25 02:27:16 +0000] [2720] [DEBUG] GET /
+[2016-03-25 02:27:27 +0000] [2717] [DEBUG] GET /
+[2016-03-25 02:29:19 +0000] [2721] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 02:29:19 +0000] [2721] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 02:29:19 +0000] [2721] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 03:26:46 +0000] [2717] [DEBUG] GET /
+[2016-03-25 03:27:20 +0000] [2717] [DEBUG] GET /
+[2016-03-25 03:46:31 +0000] [2721] [DEBUG] GET /robots.txt
+[2016-03-25 03:49:46 +0000] [2717] [DEBUG] GET /product/app/app/5c8790a6.app.js
+[2016-03-25 00:01:52 +0000] [2708] [INFO] Handling signal: term
+[2016-03-25 04:01:52 +0000] [2720] [INFO] Worker exiting (pid: 2720)
+[2016-03-25 04:01:52 +0000] [2721] [INFO] Worker exiting (pid: 2721)
+[2016-03-25 04:01:52 +0000] [2717] [INFO] Worker exiting (pid: 2717)
+[2016-03-25 00:01:52 +0000] [2708] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-25 00:01:53 +0000] [22282] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f61a348fe60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f61a348fb90>
+  pre_fork: <function pre_fork at 0x7f61a348fcf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f61a348fa28>
+  pre_exec: <function pre_exec at 0x7f61a3497488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f61a3497050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f61a3497b18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f61a34975f0>
+  post_request: <function post_request at 0x7f61a34976e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f61a34971b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f61a3497848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f61a348f8c0>
+  worker_abort: <function worker_abort at 0x7f61a3497320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f61a34979b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-25 00:01:53 +0000] [22282] [INFO] Starting gunicorn 19.4.5
+[2016-03-25 00:01:53 +0000] [22282] [DEBUG] Arbiter booted
+[2016-03-25 00:01:53 +0000] [22282] [INFO] Listening at: http://0.0.0.0:8000 (22282)
+[2016-03-25 00:01:53 +0000] [22282] [INFO] Using worker: sync
+[2016-03-25 00:01:53 +0000] [22291] [INFO] Booting worker with pid: 22291
+[2016-03-25 00:01:53 +0000] [22292] [INFO] Booting worker with pid: 22292
+[2016-03-25 00:01:53 +0000] [22297] [INFO] Booting worker with pid: 22297
+[2016-03-25 00:01:53 +0000] [22282] [DEBUG] 3 workers
+[2016-03-25 04:02:02 +0000] [22297] [DEBUG] GET /
+[2016-03-25 04:02:07 +0000] [22291] [DEBUG] GET /favicon.ico
+[2016-03-25 04:02:17 +0000] [22291] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:02:17 +0000] [22291] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:02:19 +0000] [22291] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:02:20 +0000] [22291] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:02:22 +0000] [22291] [DEBUG] GET /accounts/login
+[2016-03-25 04:02:22 +0000] [22297] [DEBUG] GET /accounts/login/
+[2016-03-25 04:02:24 +0000] [22297] [DEBUG] POST /accounts/login/
+[2016-03-25 04:02:27 +0000] [22297] [DEBUG] GET /accounts/github/login/
+[2016-03-25 04:02:28 +0000] [22297] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-25 04:02:28 +0000] [22297] [DEBUG] GET /
+[2016-03-25 04:02:31 +0000] [22297] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:02:31 +0000] [22297] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:02:33 +0000] [22297] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 00:13:07 +0000] [22282] [INFO] Handling signal: term
+[2016-03-25 04:13:07 +0000] [22297] [INFO] Worker exiting (pid: 22297)
+[2016-03-25 04:13:07 +0000] [22291] [INFO] Worker exiting (pid: 22291)
+[2016-03-25 04:13:07 +0000] [22292] [INFO] Worker exiting (pid: 22292)
+[2016-03-25 00:13:07 +0000] [22282] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-25 00:13:09 +0000] [23097] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f9dfc59de60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f9dfc59db90>
+  pre_fork: <function pre_fork at 0x7f9dfc59dcf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f9dfc59da28>
+  pre_exec: <function pre_exec at 0x7f9dfc5a5488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f9dfc5a5050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f9dfc5a5b18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f9dfc5a55f0>
+  post_request: <function post_request at 0x7f9dfc5a56e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f9dfc5a51b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f9dfc5a5848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f9dfc59d8c0>
+  worker_abort: <function worker_abort at 0x7f9dfc5a5320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f9dfc5a59b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-25 00:13:09 +0000] [23097] [INFO] Starting gunicorn 19.4.5
+[2016-03-25 00:13:09 +0000] [23097] [DEBUG] Arbiter booted
+[2016-03-25 00:13:09 +0000] [23097] [INFO] Listening at: http://0.0.0.0:8000 (23097)
+[2016-03-25 00:13:09 +0000] [23097] [INFO] Using worker: sync
+[2016-03-25 00:13:09 +0000] [23106] [INFO] Booting worker with pid: 23106
+[2016-03-25 00:13:09 +0000] [23107] [INFO] Booting worker with pid: 23107
+[2016-03-25 00:13:09 +0000] [23112] [INFO] Booting worker with pid: 23112
+[2016-03-25 00:13:09 +0000] [23097] [DEBUG] 3 workers
+[2016-03-25 04:14:03 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:14:04 +0000] [23112] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:16:37 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:16:39 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:21:15 +0000] [23106] [DEBUG] GET /
+[2016-03-25 04:21:36 +0000] [23112] [DEBUG] GET /
+[2016-03-25 04:24:13 +0000] [23107] [DEBUG] GET /
+[2016-03-25 04:24:17 +0000] [23107] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:24:18 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:32:31 +0000] [23106] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:32:33 +0000] [23106] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:32:34 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:33:41 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:33:42 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:33:48 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:33:48 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:34:36 +0000] [23107] [DEBUG] GET /me
+[2016-03-25 04:34:36 +0000] [23107] [DEBUG] GET /me/
+[2016-03-25 04:34:47 +0000] [23112] [DEBUG] POST /me/
+[2016-03-25 04:34:47 +0000] [23112] [DEBUG] GET /
+[2016-03-25 04:34:50 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:34:50 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:35:05 +0000] [23106] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:49:22 +0000] [23107] [DEBUG] GET /
+[2016-03-25 04:49:26 +0000] [23107] [DEBUG] GET /favicon.ico
+[2016-03-25 04:49:27 +0000] [23107] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:49:27 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:49:28 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:49:31 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:50:49 +0000] [23107] [DEBUG] GET /accounts/login
+[2016-03-25 04:50:49 +0000] [23107] [DEBUG] GET /accounts/login/
+[2016-03-25 04:50:53 +0000] [23107] [DEBUG] GET /accounts/github/login/
+[2016-03-25 04:51:34 +0000] [23106] [DEBUG] GET /accounts/github/login/callback/
+[2016-03-25 04:51:35 +0000] [23106] [DEBUG] GET /
+[2016-03-25 04:51:56 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:51:57 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:52:00 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:52:08 +0000] [23106] [DEBUG] GET /me
+[2016-03-25 04:52:08 +0000] [23106] [DEBUG] GET /me/
+[2016-03-25 04:52:15 +0000] [23112] [DEBUG] POST /me/
+[2016-03-25 04:52:15 +0000] [23112] [DEBUG] GET /
+[2016-03-25 04:52:17 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:52:18 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:52:20 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:52:25 +0000] [23112] [DEBUG] GET /api/reserve/
+[2016-03-25 04:52:36 +0000] [23107] [DEBUG] GET /api/reserve/
+[2016-03-25 04:52:40 +0000] [23112] [DEBUG] GET /api/reserve/
+[2016-03-25 04:52:48 +0000] [23112] [DEBUG] GET /api/reserve/
+[2016-03-25 04:52:51 +0000] [23112] [DEBUG] GET /api/reserve/
+[2016-03-25 04:52:55 +0000] [23107] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:00 +0000] [23106] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:06 +0000] [23106] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:11 +0000] [23107] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:15 +0000] [23107] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:20 +0000] [23107] [DEBUG] GET /api/reserve/
+[2016-03-25 04:53:25 +0000] [23106] [DEBUG] GET /api/reserve/
+[2016-03-25 04:54:38 +0000] [23107] [DEBUG] GET /
+[2016-03-25 04:56:49 +0000] [23112] [DEBUG] GET /
+[2016-03-25 04:56:52 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:56:52 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:56:52 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:57:19 +0000] [23106] [DEBUG] GET /
+[2016-03-25 04:57:53 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:57:53 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:57:55 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:57:57 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:57:58 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:58:07 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:58:10 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:58:11 +0000] [23112] [DEBUG] GET /
+[2016-03-25 04:58:14 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 04:58:30 +0000] [23107] [DEBUG] GET /api/rent/
+[2016-03-25 04:58:31 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 04:58:34 +0000] [23107] [DEBUG] GET /api/return/
+/home/hardwarelab/.virtualenvs/hardwarelab/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Rental.returned_at received a naive datetime (2016-03-25 04:58:34.722830) while time zone support is active.
+  RuntimeWarning)
+
+[2016-03-25 04:58:37 +0000] [23107] [DEBUG] GET /
+[2016-03-25 04:58:40 +0000] [23107] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 04:58:40 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:58:42 +0000] [23106] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:58:44 +0000] [23106] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 04:58:45 +0000] [23106] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 04:58:50 +0000] [23106] [DEBUG] GET /api/reserve/
+[2016-03-25 04:58:53 +0000] [23106] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 04:58:55 +0000] [23106] [DEBUG] GET /
+[2016-03-25 05:06:45 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 05:06:46 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 05:06:47 +0000] [23112] [DEBUG] GET /
+[2016-03-25 05:06:47 +0000] [23112] [DEBUG] GET /
+[2016-03-25 05:06:48 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:06:52 +0000] [23112] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 05:06:52 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 05:06:53 +0000] [23112] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:06:55 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:06:56 +0000] [23112] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:07:52 +0000] [23112] [DEBUG] GET /
+[2016-03-25 05:07:57 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 05:08:22 +0000] [23112] [DEBUG] GET /
+[2016-03-25 05:09:37 +0000] [23112] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 05:09:41 +0000] [23112] [DEBUG] GET /admin
+[2016-03-25 05:09:41 +0000] [23112] [DEBUG] GET /admin/
+[2016-03-25 05:09:42 +0000] [23112] [DEBUG] GET /admin/login/
+[2016-03-25 05:09:42 +0000] [23112] [DEBUG] GET /admin
+[2016-03-25 05:09:42 +0000] [23112] [DEBUG] GET /admin/
+[2016-03-25 05:09:42 +0000] [23112] [DEBUG] GET /admin/login/
+[2016-03-25 05:09:55 +0000] [23112] [DEBUG] GET /
+[2016-03-25 05:09:58 +0000] [23106] [DEBUG] GET /favicon.ico
+[2016-03-25 05:10:00 +0000] [23107] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 05:10:00 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 05:10:01 +0000] [23107] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:10:06 +0000] [23107] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 01:13:04 +0000] [23097] [INFO] Handling signal: term
+[2016-03-25 05:13:04 +0000] [23107] [INFO] Worker exiting (pid: 23107)
+[2016-03-25 05:13:04 +0000] [23106] [INFO] Worker exiting (pid: 23106)
+[2016-03-25 05:13:04 +0000] [23112] [INFO] Worker exiting (pid: 23112)
+[2016-03-25 01:13:04 +0000] [23097] [INFO] Shutting down: Master
+Starting hardwarelab as hardwarelab
+[2016-03-25 01:13:05 +0000] [23762] [DEBUG] Current configuration:
+  proxy_protocol: False
+  worker_connections: 1000
+  statsd_host: None
+  max_requests_jitter: 0
+  post_fork: <function post_fork at 0x7f586ec39e60>
+  pythonpath: None
+  enable_stdio_inheritance: False
+  worker_class: sync
+  ssl_version: 3
+  suppress_ragged_eofs: True
+  syslog: False
+  syslog_facility: user
+  when_ready: <function when_ready at 0x7f586ec39b90>
+  pre_fork: <function pre_fork at 0x7f586ec39cf8>
+  cert_reqs: 0
+  preload_app: False
+  keepalive: 2
+  accesslog: None
+  group: 1001
+  graceful_timeout: 30
+  do_handshake_on_connect: False
+  spew: False
+  workers: 3
+  proc_name: hardwarelab
+  sendfile: None
+  pidfile: None
+  umask: 0
+  on_reload: <function on_reload at 0x7f586ec39a28>
+  pre_exec: <function pre_exec at 0x7f586ec41488>
+  worker_tmp_dir: None
+  post_worker_init: <function post_worker_init at 0x7f586ec41050>
+  limit_request_fields: 100
+  on_exit: <function on_exit at 0x7f586ec41b18>
+  config: None
+  secure_scheme_headers: {'X-FORWARDED-PROTOCOL': 'ssl', 'X-FORWARDED-PROTO': 'https', 'X-FORWARDED-SSL': 'on'}
+  proxy_allow_ips: ['127.0.0.1']
+  pre_request: <function pre_request at 0x7f586ec415f0>
+  post_request: <function post_request at 0x7f586ec416e0>
+  user: 1001
+  forwarded_allow_ips: ['127.0.0.1']
+  worker_int: <function worker_int at 0x7f586ec411b8>
+  threads: 1
+  max_requests: 0
+  limit_request_line: 4094
+  access_log_format: %(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"
+  certfile: None
+  worker_exit: <function worker_exit at 0x7f586ec41848>
+  chdir: /home/hardwarelab/hardwarelab2.0
+  paste: None
+  default_proc_name: hardwarelab.wsgi:application
+  errorlog: -
+  loglevel: debug
+  logconfig: None
+  syslog_addr: udp://localhost:514
+  syslog_prefix: None
+  daemon: False
+  ciphers: TLSv1
+  on_starting: <function on_starting at 0x7f586ec398c0>
+  worker_abort: <function worker_abort at 0x7f586ec41320>
+  bind: ['0.0.0.0:8000']
+  raw_env: []
+  reload: False
+  check_config: False
+  limit_request_field_size: 8190
+  nworkers_changed: <function nworkers_changed at 0x7f586ec419b0>
+  timeout: 30
+  ca_certs: None
+  django_settings: None
+  tmp_upload_dir: None
+  keyfile: None
+  backlog: 2048
+  logger_class: gunicorn.glogging.Logger
+  statsd_prefix: 
+[2016-03-25 01:13:05 +0000] [23762] [INFO] Starting gunicorn 19.4.5
+[2016-03-25 01:13:05 +0000] [23762] [DEBUG] Arbiter booted
+[2016-03-25 01:13:05 +0000] [23762] [INFO] Listening at: http://0.0.0.0:8000 (23762)
+[2016-03-25 01:13:05 +0000] [23762] [INFO] Using worker: sync
+[2016-03-25 01:13:05 +0000] [23771] [INFO] Booting worker with pid: 23771
+[2016-03-25 01:13:05 +0000] [23772] [INFO] Booting worker with pid: 23772
+[2016-03-25 01:13:06 +0000] [23777] [INFO] Booting worker with pid: 23777
+[2016-03-25 01:13:06 +0000] [23762] [DEBUG] 3 workers
+[2016-03-25 05:17:24 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:17:25 +0000] [23777] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:17:41 +0000] [23777] [DEBUG] GET /api/reserve/
+[2016-03-25 05:22:41 +0000] [23772] [DEBUG] GET /
+[2016-03-25 05:23:04 +0000] [23771] [DEBUG] GET /
+[2016-03-25 05:25:35 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:25:36 +0000] [23777] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:34:52 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:34:53 +0000] [23777] [DEBUG] GET /favicon.ico
+[2016-03-25 05:34:54 +0000] [23777] [DEBUG] GET /favicon.ico
+[2016-03-25 05:35:14 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:35:16 +0000] [23777] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:35:33 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:35:43 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:35:44 +0000] [23772] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:35:58 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:35:59 +0000] [23772] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:36:18 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 05:36:19 +0000] [23777] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 05:48:06 +0000] [23777] [DEBUG] GET /
+[2016-03-25 05:48:06 +0000] [23777] [DEBUG] GET /robots.txt
+[2016-03-25 05:48:06 +0000] [23777] [DEBUG] GET /sitemap.xml
+[2016-03-25 05:53:11 +0000] [23777] [DEBUG] GET /
+[2016-03-25 05:53:13 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 05:56:26 +0000] [23772] [DEBUG] GET /
+[2016-03-25 06:01:57 +0000] [23777] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 06:02:02 +0000] [23771] [DEBUG] GET /api/cancel-reservation/
+[2016-03-25 06:02:02 +0000] [23771] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 06:02:04 +0000] [23771] [DEBUG] GET /
+[2016-03-25 06:02:06 +0000] [23771] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 06:02:06 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 06:02:08 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 06:02:12 +0000] [23771] [DEBUG] GET /api/reserve/
+[2016-03-25 06:02:16 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 06:02:16 +0000] [23777] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 06:04:12 +0000] [23777] [DEBUG] GET /hardwarelab/me/orders
+[2016-03-25 06:07:05 +0000] [23772] [DEBUG] GET /
+[2016-03-25 06:21:31 +0000] [23771] [DEBUG] GET /
+[2016-03-25 06:21:50 +0000] [23771] [DEBUG] GET /
+[2016-03-25 06:23:28 +0000] [23772] [DEBUG] GET /testproxy.php
+[2016-03-25 07:04:22 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:04:33 +0000] [23771] [DEBUG] GET /admin
+[2016-03-25 07:04:33 +0000] [23771] [DEBUG] GET /admin/
+[2016-03-25 07:04:51 +0000] [23777] [DEBUG] GET /admin/rental/rental/
+[2016-03-25 07:04:52 +0000] [23777] [DEBUG] GET /admin/jsi18n/
+[2016-03-25 07:08:33 +0000] [23777] [DEBUG] GET /admin/rental/rental/23/
+[2016-03-25 07:08:33 +0000] [23777] [DEBUG] GET /admin/jsi18n/
+[2016-03-25 07:08:39 +0000] [23772] [DEBUG] GET /admin/rental/rental/
+[2016-03-25 07:19:27 +0000] [23777] [DEBUG] GET /
+[2016-03-25 07:19:30 +0000] [23777] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 07:19:30 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:19:33 +0000] [23777] [DEBUG] GET /
+[2016-03-25 07:19:34 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:19:42 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:20:08 +0000] [23772] [DEBUG] GET /api/cancel-reservation/
+[2016-03-25 07:20:08 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:20:14 +0000] [23777] [DEBUG] GET /api/cancel-reservation/
+[2016-03-25 07:20:14 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:20:17 +0000] [23777] [DEBUG] GET /api/cancel-reservation/
+[2016-03-25 07:20:18 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:21:09 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:21:15 +0000] [23771] [DEBUG] GET /api/cancel-reservation/
+[2016-03-25 07:21:15 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:21:36 +0000] [23772] [DEBUG] GET /api/rent/
+[2016-03-25 07:21:36 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:21:39 +0000] [23777] [DEBUG] GET /api/rent/
+[2016-03-25 07:21:40 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:22:24 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:22:33 +0000] [23777] [DEBUG] GET /api/return/
+/home/hardwarelab/.virtualenvs/hardwarelab/local/lib/python2.7/site-packages/django/db/models/fields/__init__.py:1474: RuntimeWarning: DateTimeField Rental.returned_at received a naive datetime (2016-03-25 07:22:33.544534) while time zone support is active.
+  RuntimeWarning)
+
+[2016-03-25 07:23:25 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:23:28 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:23:54 +0000] [23771] [DEBUG] GET /
+[2016-03-25 07:26:28 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:27:50 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:28:13 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:28:27 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:28:38 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:28:53 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:29:13 +0000] [23771] [DEBUG] GET /
+[2016-03-25 07:29:14 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:29:15 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:29:16 +0000] [23772] [DEBUG] GET /readme.html
+[2016-03-25 07:29:55 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:31:00 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:31:15 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:31:27 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:39:11 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:39:24 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:39:59 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:40:50 +0000] [23772] [DEBUG] HEAD /
+[2016-03-25 07:40:53 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:41:42 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:42:37 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:42:50 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:43:47 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:45:05 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:45:28 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:45:55 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:46:14 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:47:24 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:47:51 +0000] [23777] [DEBUG] GET /
+[2016-03-25 07:47:53 +0000] [23771] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 07:47:53 +0000] [23771] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:47:56 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 07:48:01 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:48:02 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:48:03 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:48:04 +0000] [23772] [DEBUG] GET /favicon.ico
+[2016-03-25 07:48:06 +0000] [23772] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 07:48:06 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:48:07 +0000] [23772] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 07:48:13 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:48:14 +0000] [23772] [DEBUG] GET /media/Muse_EmuHZVJ.jpg
+[2016-03-25 07:48:22 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:48:36 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:48:48 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/manager
+[2016-03-25 07:49:28 +0000] [23777] [DEBUG] GET /
+[2016-03-25 07:49:49 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:49:58 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/Muse%20Headband
+[2016-03-25 07:50:30 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:50:32 +0000] [23772] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 07:50:32 +0000] [23772] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:52:03 +0000] [23772] [DEBUG] GET /
+[2016-03-25 07:52:05 +0000] [23777] [DEBUG] GET /hardwarelab/whto16
+[2016-03-25 07:52:05 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/
+[2016-03-25 07:52:09 +0000] [23777] [DEBUG] GET /hardwarelab/whto16/manager
