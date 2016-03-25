@@ -28,15 +28,21 @@
                   {%endif%}
                 {% endfor %}
               </select>
+			  <div class="ui divider"></div>
+			    <div class="cancel">
+			    	<div class="ui left floated basic red button">
+				    <i class="fa fa-ban"></i> Cancel
+				  </div>
+			    </div>
+			    <div class="create-rental">
+		 	      <div class="ui right floated basic green button">
+			        <i class="fa fa-plus-square"></i> 
+			        Rent
+			      </div>
+		        </div>
+			    <div hidden id="rental-id" value="{{reservation.id}}"></div>
             </div>
           </div>
-        <div class="create-rental">
-          <div class="ui bottom attached button">
-            <i class="fa fa-plus-square"></i> 
-            Create Rental
-          </div>
-        </div>
-        <div hidden id="rental-id" value="{{reservation.id}}"></div>
         </div>
       {% endfor %}
     </div>

@@ -2,6 +2,32 @@
 {% block content %}
 <script>
 $(document).ready(function(){
+	$(".cancel").on("click", function() {
+      $rental_id = $(this).siblings("#rental-id").attr("value");
+      console.log($rental_id);
+        $("#cancel-reservation-modal").modal({
+          closable  : true,
+          onDeny    : function(){
+            return true;
+          },
+          onApprove : function() {
+            $.ajax({
+              url : "/api/cancel-reservation/", // the endpoint
+              type : "GET", // http method
+              data : { 
+                rental_id: $rental_id
+              },
+              success : function(data) {
+                $("#manager-container").load(document.URL + ' #manager-container');
+                //location.reload();
+              }, 
+              error: function(data) {
+                alertify.alert(data.responseText);
+              }
+            });
+          },
+        }).modal('show');
+    });
     $(document).on("click", ".create-rental", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
       $inventory_id = $(this).parentsUntil('#reservations').find('select').val();
@@ -43,7 +69,7 @@ $(document).ready(function(){
       console.log($hack_finished);
       if(typeof $hack_finished === 'undefined'){
           $hack_finished = 'no';
-      };
+      }
         $("#return-modal").modal({
           closable  : true,
           onDeny    : function(){
@@ -113,4 +139,23 @@ $(document).ready(function(){
   </div>
 </div>
 
+<div id="cancel-reservation-modal" class="ui modal small">
+  <div class="ui icon header">
+  <i class="archive icon"></i>
+    Cancel Reservation<br/>
+    <small>Do you want to cancel your resevation for {{rental.inventory.device.name}}?</small>
+  </div>
+
+  <div class="actions centered">
+    
+      <div class="ui cancel button">
+        <i class="remove icon"></i>
+        My bad!
+      </div>
+      <div class="ui teal approve button">
+        <i class="checkmark icon"></i>
+        Yes, please!
+      </div>  
+  </div>
+</div>
 {% endblock %}

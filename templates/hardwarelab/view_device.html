@@ -4,9 +4,19 @@
 .clear { clear:both; }
 
 </style>
+
 <script>
 $(document).ready(function(){
+  //alertify.alert("Page loaded");
     $(document).on("click", "#rent-device", function() {
+      console.log("clicked");
+      console.log('{{user_profile.phone_number}}');
+      //if('{{user_profile.phone_number}}'.localeCompare('')){
+       // console.log("exists");
+      //} else {
+       // console.log("does not exists");
+       // alertify.alert("Please go to the Settings page and enter your phone number");
+      //}
       if ('{{user_profile.phone_number}}' != '') {
         $("#rent-device-modal").modal({
           closable  : true,
@@ -36,9 +46,9 @@ $(document).ready(function(){
             });
           },
         }).modal('show');
-      } else {
-        alertify.alert("Please go to the Settings page and enter your phone number");
-      }
+       } else {
+         alertify.alert("Please go to the Settings page and enter your phone number");
+       }
     });
 });
 </script>
@@ -66,7 +76,7 @@ $(document).ready(function(){
       </div>
       
       <a id="rent-device" 
-      class="ui button" {% if not user.is_authenticated %} style="display:none" {% endif %}>Reserve Device</a>
+      class="ui button" {% if not user.is_authenticated or not free > 0%} style="display:none" {% endif %}> Reserve Device</a>
       <br>
       <div id="out-of-stock" {% if free > 0 %} style="display:none"  {% endif %} class="ui compact warning message">
           <div class="header">
@@ -103,6 +113,5 @@ $(document).ready(function(){
       </div>  
   </div>
 </div>
-
 
 {% endblock %}
