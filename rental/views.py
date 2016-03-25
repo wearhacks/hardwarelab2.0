@@ -121,11 +121,12 @@ def reserve_device(request):
 
   #--------number of devices that have been reserved/rented
   rentals = Rental.objects.filter(event = event, device = device, returned = False)
-
+  user_rental = Rental.objects.filter(event = event, device = device, user = user, returned = False)
   free_inventory = Inventory.objects.filter(event=event, device=device).count() - rentals.count()
 
-  
-  if free_inventory > 0:
+  if user_rental.count() > 0:
+    return HttpResponseBadRequest("You already have a " + device.name + " under your name!")
+  elif free_inventory > 0:
     new_rental = Rental(user = user, event = event, device = device)
     new_rental.save()
     r = Rental.objects.filter(event = event, device = device, returned = False) #grab the current rentals again after saving the current reservation
