@@ -29,7 +29,7 @@
                 {% endfor %}
               </select>
 			  <div class="ui divider"></div>
-			    <div class="cancel">
+			    <div class="cancel-reservation">
 			    	<div class="ui left floated basic red button">
 				    <i class="fa fa-ban"></i> Cancel
 				  </div>
@@ -39,7 +39,7 @@
 			        <i class="fa fa-plus-square"></i> 
 			        Rent
 			      </div>
-		        </div>
+		      </div>
 			    <div hidden id="rental-id" value="{{reservation.id}}"></div>
             </div>
           </div>
@@ -57,7 +57,13 @@
       {% for rental in rentals %}
           <div class="ui blue card">
             <div class="content">
-              <a class="header">{{rental.user.first_name}} {{rental.user.last_name}}</a>
+              <a class="header">
+                            {% if rental.user.first_name %} 
+                {{rental.user.first_name}} {{rental.user.last_name}} 
+              {% else %} 
+                {{rental.user.username}} 
+              {% endif %}
+              </a>
               <div class="meta">
               </div>
               <div class="description">
@@ -71,7 +77,7 @@
                 <label>Hack finished</label>
               </div>
             </div>
-            <div class="return">
+            <div class="return-device">
               <div class="ui bottom attached button">
                 <i class="fa fa-undo"></i> 
                 Return

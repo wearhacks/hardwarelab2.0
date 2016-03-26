@@ -2,9 +2,9 @@
 {% block content %}
 <script>
 $(document).ready(function(){
-	$(".cancel").on("click", function() {
+	$("body").on("click", ".cancel-reservation", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
-      console.log($rental_id);
+
         $("#cancel-reservation-modal").modal({
           closable  : true,
           onDeny    : function(){
@@ -28,7 +28,8 @@ $(document).ready(function(){
           },
         }).modal('show');
     });
-    $(document).on("click", ".create-rental", function() {
+    $("body").on("click",".create-rental", function() {
+
       $rental_id = $(this).siblings("#rental-id").attr("value");
       $inventory_id = $(this).parentsUntil('#reservations').find('select').val();
       console.log($inventory_id);
@@ -61,7 +62,7 @@ $(document).ready(function(){
         }).modal('show');
       }
     });
-    $(document).on("click", ".return", function() {
+    $("body").on("click", ".return-device", function() {
       $rental_id = $(this).siblings("#rental-id").attr("value");
       $hack_finished = $(this).siblings('div.extra.content').children().children('.hack_finished:checked').val();
       console.log($rental_id);
@@ -102,7 +103,7 @@ $(document).ready(function(){
 <div id="create-rental-modal" class="ui modal small">
   <div class="ui icon header">
   <i class="archive icon"></i>
-    Cancel Reservation<br/>
+    Create Rental<br/>
     <small>Do you want to create this rental?</small>
   </div>
 
@@ -122,8 +123,8 @@ $(document).ready(function(){
 <div id="return-modal" class="ui modal small">
   <div class="ui icon header">
   <i class="archive icon"></i>
-    Cancel Reservation<br/>
-    <small>Do you want to create this rental?</small>
+    Return<br/>
+    <small>Is the user returning this hardware?</small>
   </div>
 
   <div class="actions centered">
