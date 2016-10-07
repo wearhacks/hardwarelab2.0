@@ -7,13 +7,6 @@ from django.db.models import Q
 
 class AdminEvent(admin.ModelAdmin):
   filter_vertical = ("inventories",)
-  event = None
-  def formfield_for_manytomany(self, db_field, request, **kwargs):
-    #SICK HAXORS 8-)
-    if db_field.name == "inventories":
-      event = Event.objects.filter(slug=request.path.split('/')[-2])
-      kwargs["queryset"] = Inventory.objects.filter(Q(event=event) | Q(event=None))
-    return super(AdminEvent, self).formfield_for_manytomany(db_field, request, **kwargs)
   pass
 
 class InventoryInline(admin.TabularInline):
