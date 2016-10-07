@@ -28,7 +28,7 @@ $ workon hardwarelab
 
 Now, open <http://127.0.0.1:8000/admin>.
 
-## Usage
+## Usage 
 
 * To run on [localhost](http://127.0.0.1:8000/):
 
