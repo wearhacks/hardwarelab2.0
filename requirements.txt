@@ -1,9 +1,13 @@
+dj-database-url==0.4.1
 Django==1.8.5
 django-allauth==0.24.1
 django-grappelli==2.7.1
+gunicorn==19.6.0
 oauthlib==1.0.3
 Pillow==3.0.0
+psycopg2==2.6.2
 python-openid==2.2.5
 requests==2.9.1
 requests-oauthlib==0.6.0
 wheel==0.26.0
+whitenoise==3.2.2

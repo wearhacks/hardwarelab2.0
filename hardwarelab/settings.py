@@ -13,8 +13,9 @@ https://docs.djangoproject.com/en/1.8/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -98,17 +99,10 @@ MEDIA_URL = '/media/'
 #    }
 #}
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'hardwarelab',
-        'USER': 'hardwarelab',
-        'PASSWORD': 'hardwarelab2016',
-        'HOST': 'localhost',
-        'PORT': '',                      # Set to empty string for default.
-    }
-}
-
+# Update database configuration with $DATABASE_URL.
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -127,16 +121,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/'
-PIPELINE_COMPILERS = (
-    'pipeline.compilers.sass.SASSCompiler',
-)
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static/')
-
+# Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static","hardwarelab"),
-
+    os.path.join(PROJECT_ROOT, 'static'),
 )
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
