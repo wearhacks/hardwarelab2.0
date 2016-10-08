@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    {% load staticfiles %}
+   {% load static from staticfiles %}
 
     <title>HardwareLab   {% block title %}  {% endblock %}</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,19 +10,18 @@
 
     <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+   
+    <script type="text/javascript" src=" https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel='stylesheet' id='blink-google-fonts-css'  href='//fonts.googleapis.com/css?family=Montserrat%3Aregular%2C700%7CPT+Serif%3Aregular%2Citalic%2C700%26subset%3Dlatin%2C&#038;ver=1.0.5' type='text/css' media='all' />
-     <link rel="stylesheet"  href="{% static 'bower_components/alertifyjs/dist/css/alertify.css' %}">
-    <link rel="stylesheet" href="{% static 'bower_components/semantic-ui/dist/semantic.css' %}">
-    <script type="text/javascript" src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <script type="text/javascript" src="{% static 'bower_components/semantic-ui/dist/semantic.js' %}"></script>
-      <script type="text/javascript" src="{% static 'bower_components/alertifyjs/dist/js/alertify.js' %}"></script>
-      <script type="text/javascript" src="{% static 'bower_components/js-cookie/src/js.cookie.js' %}"></script>
+     <link rel="stylesheet"  href="{% static 'bower_components/alertifyjs/alertify.css' %}">
+    <link rel="stylesheet" href="{% static 'bower_components/semantic-ui/semantic.min.css' %}">
+    <script type="text/javascript" src="{% static 'bower_components/semantic-ui/semantic.min.js' %}"></script>
+      <script type="text/javascript" src="{% static 'bower_components/alertifyjs/alertify.js' %}"></script>
+      <script type="text/javascript" src="{% static 'bower_components/js-cookie/js.cookie.js' %}"></script>
      <script type="text/javascript" src="{% static 'base.js' %}"></script>
       {% block script_section %}
       {% endblock %}
-  </head>
-  <style>
-  </style>
+  </head> 
   <script>
 
 
