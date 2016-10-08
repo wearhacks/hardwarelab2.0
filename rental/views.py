@@ -51,7 +51,7 @@ def devices(request, event_slug):
   return render(request,'devices.html', content)
 
 def view_device(request, event_slug, device_name):
-  device = Device.objects.get(name=device_name)
+  device = Device.objects.filter(name__contains=device_name).first()
   event = Event.objects.get(slug=event_slug)
   event_inventory = Inventory.objects.filter(event=event, device=device)
   rentals = Rental.objects.filter(event = event, device = device, returned = False)

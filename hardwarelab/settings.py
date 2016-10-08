@@ -15,6 +15,7 @@ import os
 
 PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
@@ -122,7 +123,7 @@ PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR,'serve_static/')
+STATIC_ROOT = os.path.join('/var/www','hardwarelab_assets')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
