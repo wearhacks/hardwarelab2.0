@@ -122,10 +122,10 @@ PIPELINE_COMPILERS = (
     'pipeline.compilers.sass.SASSCompiler',
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR,'static/')
+STATIC_ROOT = os.path.join(BASE_DIR,'serve_static/')
 
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static","hardwarelab"),
+    os.path.join(BASE_DIR, "static"),
 
 )
 
